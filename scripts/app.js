@@ -6,9 +6,7 @@ let theTaskContainer = document.querySelector("ul");
 console.log(removeButtons);
 theInputes[1].addEventListener("click", addTask);
 theContainer.addEventListener("click", addCheck);
-for (let i = 0; i < removeButtons.length; i++) {
-  removeButtons[i].addEventListener("click", removeTheTask);
-}
+document.addEventListener("click", removeTheTask);
 
 function addTask() {
   let theTask = taskCreator();
@@ -31,8 +29,10 @@ function addCheck(eve) {
   }
 }
 function removeTheTask(eve) {
-  let theTask = eve.target.parentElement;
-  theTaskContainer.removeChild(theTask);
+  if (eve.target.nodeName == "BUTTON") {
+    let theTask = eve.target.parentElement;
+    theTaskContainer.removeChild(theTask);
+  }
 }
 function taskCreator() {
   let theElement = document.createElement("li");
