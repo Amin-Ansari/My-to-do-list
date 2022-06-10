@@ -53,14 +53,12 @@ body {
   font-size: 1.4em;
   padding: 7px 12px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between !important;
   cursor: pointer;
   transition: all 0.3s;
   position: relative;
 }
-.flex-alignment {
-  justify-content: space-between !important;
-}
+
 .task > p {
   font-size: inherit;
   transition: margin 0.3s;
