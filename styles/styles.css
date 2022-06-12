@@ -87,6 +87,9 @@ body {
   margin-left: 22px;
   text-decoration: line-through;
 }
+.selected-bg {
+  background-color: #808080;
+}
 .check {
   height: 25px;
   width: 10px;
@@ -101,7 +104,7 @@ body {
   display: inline-block;
 }
 
-.task:hover {
+.hover-state:hover {
   background-color: #ccc;
 }
 .task:hover > button {
