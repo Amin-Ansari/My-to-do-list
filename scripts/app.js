@@ -8,16 +8,18 @@ theContainer.addEventListener("click", addCheck);
 document.addEventListener("click", removeTheTask);
 
 function addTask() {
-  let theTask = taskCreator();
-  let checkElement = checkCreator();
-  let pElement = pCreator();
-  let removeButton = buttonCreator();
-  pElement.innerHTML = theInputes[0].value;
-  theTask.appendChild(checkElement);
-  theTask.appendChild(pElement);
-  theTask.appendChild(removeButton);
-  theTaskContainer.appendChild(theTask);
-  theInputes[0].value = "";
+  if (theInputes[0].value) {
+    let theTask = taskCreator();
+    let checkElement = checkCreator();
+    let pElement = pCreator();
+    let removeButton = buttonCreator();
+    pElement.innerHTML = theInputes[0].value;
+    theTask.appendChild(checkElement);
+    theTask.appendChild(pElement);
+    theTask.appendChild(removeButton);
+    theTaskContainer.appendChild(theTask);
+    theInputes[0].value = "";
+  }
 }
 function addCheck(eve) {
   if (eve.target.nodeName == "P" || eve.target.nodeName == "LI") {

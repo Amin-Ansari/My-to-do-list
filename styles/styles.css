@@ -17,6 +17,8 @@ body {
   width: 750px;
   min-width: 380px;
   padding: 0px 10px;
+  max-height: 750px;
+  overflow-y: scroll;
 }
 .heading {
   width: 100%;
