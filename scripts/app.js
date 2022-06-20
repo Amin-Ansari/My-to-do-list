@@ -33,15 +33,31 @@ function loadTasks() {
   document.querySelector(".task-container").innerHTML = "";
   if (localStorage.length) {
     for (let i = 0; i < localStorage.length; i++) {
-      let theTask = taskCreator();
-      let checkElement = checkCreator();
-      let pElement = pCreator();
-      let removeButton = buttonCreator();
-      pElement.innerHTML = localStorage.key(i);
-      theTask.appendChild(checkElement);
-      theTask.appendChild(pElement);
-      theTask.appendChild(removeButton);
-      theTaskContainer.appendChild(theTask);
+      let taskValue = localStorage.key(i);
+      if (localStorage.getItem(taskValue) == "false") {
+        let theTask = taskCreator();
+        let checkElement = checkCreator();
+        let pElement = pCreator();
+        let removeButton = buttonCreator();
+        pElement.innerHTML = localStorage.key(i);
+        theTask.appendChild(checkElement);
+        theTask.appendChild(pElement);
+        theTask.appendChild(removeButton);
+        theTaskContainer.appendChild(theTask);
+      } else if (localStorage.getItem(taskValue) == "true") {
+        let theTask = taskCreator();
+        let checkElement = checkCreator();
+        let pElement = pCreator();
+        let removeButton = buttonCreator();
+        theTask.classList.replace("hover-state", "selected-bg");
+        checkElement.classList.add("show");
+        pElement.innerHTML = localStorage.key(i);
+        pElement.classList.add("selected");
+        theTask.appendChild(checkElement);
+        theTask.appendChild(pElement);
+        theTask.appendChild(removeButton);
+        theTaskContainer.appendChild(theTask);
+      }
     }
   }
 }
