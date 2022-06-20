@@ -22,10 +22,21 @@ function addCheck(eve) {
       theTask.firstElementChild.nextElementSibling.classList.toggle("selected");
       theTask.classList.toggle("hover-state");
       theTask.classList.toggle("selected-bg");
+      if (localStorage.getItem(theTask.textContent) == "false") {
+        localStorage.setItem(theTask.textContent, "true");
+      } else if (localStorage.getItem(theTask.textContent) == "true") {
+        localStorage.setItem(theTask.textContent, "false");
+      }
+      console.log(theTask.textContent);
     } else if (eve.target.nodeName == "LI") {
       let theTask = eve.target;
       theTask.classList.toggle("hover-state");
       theTask.classList.toggle("selected-bg");
+      if (localStorage.getItem(theTask.textContent) == "false") {
+        localStorage.setItem(theTask.textContent, "true");
+      } else if (localStorage.getItem(theTask.textContent) == "true") {
+        localStorage.setItem(theTask.textContent, "false");
+      }
     }
   }
 }
