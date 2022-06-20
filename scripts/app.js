@@ -3,21 +3,14 @@ let removeButtons = document.querySelectorAll("button");
 let theContainer = document.querySelector("section");
 let theTaskContainer = document.querySelector("ul");
 
+document.addEventListener("DOMContentLoaded", loadTasks);
 theInputes[1].addEventListener("click", addTask);
 theContainer.addEventListener("click", addCheck);
 document.addEventListener("click", removeTheTask);
 
 function addTask() {
   if (theInputes[0].value) {
-    let theTask = taskCreator();
-    let checkElement = checkCreator();
-    let pElement = pCreator();
-    let removeButton = buttonCreator();
-    pElement.innerHTML = theInputes[0].value;
-    theTask.appendChild(checkElement);
-    theTask.appendChild(pElement);
-    theTask.appendChild(removeButton);
-    theTaskContainer.appendChild(theTask);
+    addTaskToLocal(theInputes[0].value);
     theInputes[0].value = "";
   }
 }
@@ -36,9 +29,36 @@ function addCheck(eve) {
     }
   }
 }
+function loadTasks() {
+  document.querySelector(".task-container").innerHTML = "";
+  if (localStorage.length) {
+    for (let i = 0; i < localStorage.length; i++) {
+      let theTask = taskCreator();
+      let checkElement = checkCreator();
+      let pElement = pCreator();
+      let removeButton = buttonCreator();
+      pElement.innerHTML = localStorage.key(i);
+      theTask.appendChild(checkElement);
+      theTask.appendChild(pElement);
+      theTask.appendChild(removeButton);
+      theTaskContainer.appendChild(theTask);
+    }
+  }
+}
+function addTaskToLocal(task) {
+  localStorage.setItem(task, "false");
+  loadTasks();
+}
 function removeTheTask(eve) {
   if (eve.target.nodeName == "BUTTON") {
     let theTask = eve.target.parentElement;
+    let allLi = document.querySelectorAll("li");
+    for (let i = 0; i < localStorage.length; i++) {
+      if (allLi[i] === theTask) {
+        localStorage.removeItem(localStorage.key(i));
+        loadTasks();
+      }
+    }
     theTaskContainer.removeChild(theTask);
   }
 }
