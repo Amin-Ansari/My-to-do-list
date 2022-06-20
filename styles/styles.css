@@ -56,8 +56,9 @@ body {
   background-color: #ebebeb;
 }
 .task {
-  font-size: 1.4em;
+  font-size: 1.2em;
   padding: 7px 12px;
+  height: 47px;
   display: flex;
   justify-content: space-between !important;
   cursor: pointer;
@@ -67,8 +68,10 @@ body {
 
 .task > p {
   font-size: inherit;
+  height: 100%;
   transition: margin 0.3s;
   width: 92%;
+  line-height: 33px;
 }
 .task > button {
   border: none;
@@ -78,6 +81,7 @@ body {
   font-size: 0.9em;
   cursor: pointer;
   display: none;
+  color: inherit !important;
 }
 .task > button::after {
   font-family: "Font Awesome 5 Free";
@@ -92,6 +96,7 @@ body {
 .selected {
   margin-left: 22px;
   text-decoration: line-through;
+  color: #fff;
 }
 .selected-bg {
   background-color: #808080;
@@ -105,9 +110,11 @@ body {
   transform: rotate(45deg);
   position: absolute;
   display: none;
+  color: inherit;
 }
 .show {
   display: inline-block;
+  border-color: #fff;
 }
 
 .hover-state:hover {
