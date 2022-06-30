@@ -2,7 +2,20 @@ let theInputes = document.querySelectorAll("input");
 let removeButtons = document.querySelectorAll("button");
 let theContainer = document.querySelector("section");
 let theTaskContainer = document.querySelector("ul");
+let theForm = document.querySelector("form");
 
+theForm.addEventListener("keydown", function (e) {
+  if (e.code === "Enter") {
+    e.preventDefault();
+  }
+});
+
+theInputes[0].addEventListener("keydown", function (e) {
+  if (e.code == "Enter") {
+    e.preventDefault();
+    addTask();
+  }
+});
 document.addEventListener("DOMContentLoaded", loadTasks);
 theInputes[1].addEventListener("click", addTask);
 theContainer.addEventListener("click", addCheck);

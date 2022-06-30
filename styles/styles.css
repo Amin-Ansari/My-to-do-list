@@ -81,7 +81,7 @@ body {
   font-size: 0.9em;
   cursor: pointer;
   display: none;
-  color: inherit !important;
+  color: inherit;
 }
 .task > button::after {
   font-family: "Font Awesome 5 Free";
