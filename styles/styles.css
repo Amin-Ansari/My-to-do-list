@@ -2,7 +2,7 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 18px;
   text-decoration: none;
   list-style-type: none;
@@ -11,49 +11,124 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 50px 0px;
+  padding: 150px 20px;
+}
+::after {
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  text-align: center;
 }
 .todolist-container {
-  width: 750px;
-  min-width: 380px;
-  padding: 0px 10px;
+  width: 100%;
+  max-width: 1220px;
+  min-height: 350px;
   max-height: 750px;
   overflow-y: scroll;
+  background-color: #f8f9fa;
+  box-shadow: 0px 2px 8px 0px rgba(88, 88, 88, 0.315);
+  border-radius: 10px;
+  padding: 0px 5px;
 }
 .heading {
   width: 100%;
-  height: 190px;
-  background-color: orange;
-  padding: 30px;
+  height: 200px;
+  background-color: inherit;
+  border-bottom: 1px solid;
+  position: relative;
+  border: none;
+}
+.heading::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  width: 98%;
+  height: 1px;
+  right: 50%;
+  transform: translate(50%, 50%);
+  background-color: #d8d8d8;
 }
 .app-title {
   text-align: center;
-  color: #fff;
-  padding: 10px 0px;
-  font-size: 2em;
+  color: #000;
+  font-family: "Titan One", sans-serif;
+  height: 105px;
+  font-weight: normal;
+  line-height: 105px;
+}
+.to-do {
+  font: inherit;
+  color: #42c2ff;
+}
+.logo-image {
+  display: inline-block;
+  position: relative;
+  top: 14px;
 }
 .add-task-container {
   width: 100%;
   display: flex;
+  justify-content: flex-start;
+  font-weight: lighter;
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+.button-part {
+  display: flex;
+  align-items: center;
+  padding: 4px 10px 4px 0px;
+}
+.calendar {
+  width: 30%;
+  display: block;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  margin: 0px 5px;
+}
+.calendar-btn {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  right: 0px;
+}
+.calendar-btn::after {
+  content: "\f073";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  font-size: 25px;
+  color: #42c2ff;
+  transition: all 0.3s;
+}
+.calendar-input:hover + .calendar-btn::after {
+  color: #0ee192;
+}
+.calendar-input {
+  opacity: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
 }
 .add-task-container > input {
   border: none;
   height: 50px;
 }
 .add-task-container > input[type="text"] {
-  width: 80%;
   padding: 7px;
   border: none;
   outline: none;
-}
-.add-task-container > input[type="button"] {
-  width: 20%;
+  padding: 0px 20px;
 }
 .task-container {
   width: 100%;
   height: auto;
-  background-color: #ebebeb;
+  background-color: #f8f9fa;
 }
 .task {
   font-size: 1.2em;

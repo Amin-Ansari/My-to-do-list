@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To do list</title>
     <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -13,15 +14,39 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Josefin+Sans:wght@100&family=Titan+One&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <section class="todolist-container">
-      <header class="heading">
-        <h1 class="app-title">To Do List</h1>
+      <header class="heading heading-padd">
+        <h1 class="app-title heading-font">
+          My
+          <img
+            class="logo-image logo-size"
+            src="images/Group 1.png"
+            alt="App logo"
+          />
+          <span class="to-do">To do </span>list
+        </h1>
         <form action="#" method="post">
           <div class="add-task-container">
-            <input type="text" placeholder="Add the task..." />
-            <input type="button" value="Add" />
+            <input
+              class="text-bar-width"
+              type="text"
+              placeholder="Add a new task..."
+            />
+            <div class="button-part buttons-width button-justify">
+              <span class="calendar calendar-margin">
+                <input class="calendar-input" type="date" />
+                <i class="calendar-btn"></i>
+              </span>
+              <input type="button" value="ADD" />
+            </div>
           </div>
         </form>
       </header>
