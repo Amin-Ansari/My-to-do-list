@@ -14,7 +14,9 @@ body {
   padding: 150px 20px;
 }
 .todolist-container {
-  width: 1287px;
+  width: 100%;
+  max-width: 1220px;
+  min-height: 350px;
   padding: 0px 10px;
   max-height: 750px;
   overflow-y: scroll;
