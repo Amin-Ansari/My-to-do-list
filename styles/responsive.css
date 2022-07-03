@@ -1,0 +1,196 @@
+@media all and (max-width: 556px) {
+  .heading-font {
+    font-size: 28px;
+  }
+  .logo-size {
+    width: 40px;
+    height: 40px;
+    top: 9px;
+  }
+  .heading-padd {
+    padding: 5px;
+  }
+  .text-bar-width {
+    width: 70%;
+  }
+  .buttons-width {
+    width: 30%;
+  }
+  .add-task-container input[type="button"] {
+    width: 80%;
+    height: 90%;
+    border-radius: 5px;
+    color: #fff;
+    border: none;
+    font-size: 19px;
+    font-weight: normal;
+    line-height: 40px;
+    background-color: #42c2ff;
+    transition: all 0.3s;
+  }
+  .add-task-container input[type="button"]:hover {
+    background-color: #0ee192;
+    transform: scale(1.03);
+    font-size: 20px;
+  }
+  .button-justify {
+    justify-content: flex-end;
+  }
+}
+@media all and (min-width: 556px) {
+  .heading-font {
+    font-size: 28px;
+  }
+  .logo-size {
+    width: 40px;
+    height: 40px;
+    top: 9px;
+  }
+  .heading-padd {
+    padding: 5px;
+  }
+  .text-bar-width {
+    width: 70%;
+  }
+  .buttons-width {
+    width: 30%;
+  }
+  .add-task-container input[type="button"] {
+    width: 80%;
+    height: 90%;
+    border-radius: 5px;
+    color: #fff;
+    border: none;
+    font-size: 19px;
+    font-weight: normal;
+    line-height: 40px;
+    background-color: #42c2ff;
+    transition: all 0.3s;
+  }
+  .add-task-container input[type="button"]:hover {
+    background-color: #0ee192;
+    transform: scale(1.03);
+    font-size: 20px;
+  }
+  .button-justify {
+    justify-content: flex-end;
+  }
+}
+@media all and (min-width: 768px) {
+  .heading-font {
+    font-size: 45px;
+  }
+  .logo-size {
+    width: 60px;
+    height: 56px;
+    top: 14px;
+  }
+  .heading-padd {
+    padding: 5px 15px;
+  }
+  .text-bar-width {
+    width: 85%;
+  }
+  .buttons-width {
+    width: 15%;
+  }
+  .add-task-container input[type="button"] {
+    width: 75%;
+    height: 90%;
+    border-radius: 5px;
+    color: #fff;
+    border: none;
+    font-size: 19px;
+    font-weight: normal;
+    line-height: 40px;
+    background-color: #42c2ff;
+    transition: all 0.3s;
+  }
+  .add-task-container input[type="button"]:hover {
+    background-color: #0ee192;
+    transform: scale(1.03);
+    font-size: 20px;
+  }
+  .button-justify {
+    justify-content: flex-end;
+  }
+}
+
+@media all and (min-width: 992px) {
+  .heading-font {
+    font-size: 45px;
+  }
+  .logo-size {
+    width: 60px;
+    height: 56px;
+    top: 14px;
+  }
+  .heading-padd {
+    padding: 5px 15px;
+  }
+  .text-bar-width {
+    width: 85%;
+  }
+  .buttons-width {
+    width: 15%;
+  }
+  .add-task-container input[type="button"] {
+    width: 50%;
+    height: 90%;
+    border-radius: 5px;
+    color: #fff;
+    border: none;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 40px;
+    background-color: #42c2ff;
+    transition: all 0.3s;
+  }
+  .add-task-container input[type="button"]:hover {
+    background-color: #0ee192;
+    transform: scale(1.05);
+    font-size: 24px;
+  }
+  .button-justify {
+    justify-content: flex-end;
+  }
+}
+@media all and (min-width: 1200px) {
+  .heading-font {
+    font-size: 45px;
+  }
+  .logo-size {
+    width: 60px;
+    height: 56px;
+    top: 14px;
+  }
+  .heading-padd {
+    padding: 5px 15px;
+  }
+  .text-bar-width {
+    width: 85%;
+  }
+  .buttons-width {
+    width: 15%;
+  }
+  .add-task-container input[type="button"] {
+    width: 50%;
+    height: 90%;
+    border-radius: 5px;
+    color: #fff;
+    border: none;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 40px;
+    background-color: #42c2ff;
+    transition: all 0.3s;
+  }
+  .add-task-container input[type="button"]:hover {
+    background-color: #0ee192;
+    transform: scale(1.05);
+    font-size: 24px;
+  }
+  .button-justify {
+    justify-content: flex-end;
+  }
+}
