@@ -31,7 +31,7 @@ function addCheck(eve) {
   if (eve.target.nodeName == "P" || eve.target.nodeName == "LI") {
     if (eve.target.nodeName == "P") {
       let theTask = eve.target.parentElement;
-      theTask.firstElementChild.classList.toggle("show");
+      // theTask.firstElementChild.classList.toggle("show");
       theTask.firstElementChild.nextElementSibling.classList.toggle("selected");
       theTask.classList.toggle("hover-state");
       theTask.classList.toggle("selected-bg");
@@ -60,24 +60,19 @@ function loadTasks() {
       let taskValue = localStorage.key(i);
       if (localStorage.getItem(taskValue) == "false") {
         let theTask = taskCreator();
-        let checkElement = checkCreator();
         let pElement = pCreator();
         let removeButton = buttonCreator();
         pElement.innerHTML = localStorage.key(i);
-        theTask.appendChild(checkElement);
         theTask.appendChild(pElement);
         theTask.appendChild(removeButton);
         theTaskContainer.appendChild(theTask);
       } else if (localStorage.getItem(taskValue) == "true") {
         let theTask = taskCreator();
-        let checkElement = checkCreator();
         let pElement = pCreator();
         let removeButton = buttonCreator();
         theTask.classList.replace("hover-state", "selected-bg");
-        checkElement.classList.add("show");
         pElement.innerHTML = localStorage.key(i);
         pElement.classList.add("selected");
-        theTask.appendChild(checkElement);
         theTask.appendChild(pElement);
         theTask.appendChild(removeButton);
         theTaskContainer.appendChild(theTask);
@@ -107,11 +102,6 @@ function taskCreator() {
   theElement.classList.add("task");
   theElement.classList.add("hover-state");
   return theElement;
-}
-function checkCreator() {
-  let theELement = document.createElement("i");
-  theELement.setAttribute("class", "check");
-  return theELement;
 }
 function pCreator() {
   let theElement = document.createElement("p");
