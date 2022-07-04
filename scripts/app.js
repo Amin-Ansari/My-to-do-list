@@ -31,7 +31,6 @@ function addCheck(eve) {
   if (eve.target.nodeName == "P" || eve.target.nodeName == "LI") {
     if (eve.target.nodeName == "P") {
       let theTask = eve.target.parentElement;
-      // theTask.firstElementChild.classList.toggle("show");
       theTask.firstElementChild.nextElementSibling.classList.toggle("selected");
       theTask.classList.toggle("hover-state");
       theTask.classList.toggle("selected-bg");
@@ -62,8 +61,10 @@ function loadTasks() {
         let theTask = taskCreator();
         let pElement = pCreator();
         let removeButton = buttonCreator();
+        let editButton = spanCreator();
         pElement.innerHTML = localStorage.key(i);
         theTask.appendChild(pElement);
+        theTask.appendChild(editButton);
         theTask.appendChild(removeButton);
         theTaskContainer.appendChild(theTask);
       } else if (localStorage.getItem(taskValue) == "true") {
@@ -109,5 +110,9 @@ function pCreator() {
 }
 function buttonCreator() {
   let theELement = document.createElement("button");
+  return theELement;
+}
+function spanCreator() {
+  let theELement = document.createElement("span");
   return theELement;
 }
