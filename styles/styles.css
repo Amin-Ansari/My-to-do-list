@@ -132,7 +132,7 @@ body {
 .task {
   font-size: 1.2em;
   padding: 7px 12px;
-  height: 47px;
+  height: 60px;
   display: flex;
   justify-content: space-between !important;
   cursor: pointer;
@@ -144,6 +144,7 @@ body {
   margin: 10px 0px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  display: flex;
 }
 
 .task > p {
@@ -151,17 +152,25 @@ body {
   height: 100%;
   transition: margin 0.3s;
   width: 92%;
-  line-height: 33px;
+  line-height: 47px;
+  padding: 0px 5px;
+  letter-spacing: 0px;
 }
+
 .task > button {
   border: none;
   background-color: transparent;
-  width: 3%;
+  width: 45px;
+  height: 100%;
   position: relative;
-  font-size: 0.9em;
+  font-size: 25px;
   cursor: pointer;
-  display: none;
+  display: inline-block;
   color: inherit;
+  background-color: #42c2ff;
+  border-radius: 5px;
+  color: #fff;
+  transition: all 0.3s;
 }
 .task > button::after {
   font-family: "Font Awesome 5 Free";
@@ -172,23 +181,15 @@ body {
   left: 0px;
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .selected {
   color: #4b5157;
 }
 .selected-bg {
   background-color: #dff6ff;
-}
-.check {
-  height: 25px;
-  width: 10px;
-  border: solid 3px;
-  border-left: none;
-  border-top: none;
-  transform: rotate(45deg);
-  position: absolute;
-  display: none;
-  color: inherit;
 }
 .show {
   display: inline-block;
@@ -202,5 +203,7 @@ body {
   display: inline;
 }
 .task > button:hover {
-  color: red;
+  background-color: #f94c66;
+  transform: scale(1.05);
+  font-size: 26px;
 }
