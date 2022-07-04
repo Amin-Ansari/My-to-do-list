@@ -11,7 +11,7 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 150px 20px;
+  padding: 40px 20px;
 }
 ::after {
   font-family: "Font Awesome 5 Free";
@@ -129,6 +129,7 @@ body {
   width: 100%;
   height: auto;
   background-color: #f8f9fa;
+  padding: 15px 12px;
 }
 .task {
   font-size: 1.2em;
@@ -139,6 +140,10 @@ body {
   cursor: pointer;
   transition: all 0.3s;
   position: relative;
+  border-bottom: 3px solid #42c2ff;
+  padding: 5px 5px;
+  color: #4b5157;
+  margin: 10px 0px;
 }
 
 .task > p {
@@ -169,12 +174,10 @@ body {
   height: 100%;
 }
 .selected {
-  margin-left: 22px;
-  text-decoration: line-through;
-  color: #fff;
+  color: #4b5157;
 }
 .selected-bg {
-  background-color: #808080;
+  background-color: #dff6ff;
 }
 .check {
   height: 25px;
@@ -193,7 +196,7 @@ body {
 }
 
 .hover-state:hover {
-  background-color: #ccc;
+  background-color: #dff6ff;
 }
 .task:hover > button {
   display: inline;
