@@ -20,7 +20,7 @@ body {
 }
 .todolist-container {
   width: 100%;
-  max-width: 1220px;
+  max-width: 900px;
   min-height: 350px;
   max-height: 750px;
   overflow-y: scroll;
@@ -144,6 +144,7 @@ body {
   padding: 5px 5px;
   color: #4b5157;
   margin: 10px 0px;
+  border-radius: 5px;
 }
 
 .task > p {
