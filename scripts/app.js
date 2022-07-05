@@ -70,11 +70,13 @@ function loadTasks() {
       } else if (localStorage.getItem(taskValue) == "true") {
         let theTask = taskCreator();
         let pElement = pCreator();
+        let editButton = spanCreator();
         let removeButton = buttonCreator();
         theTask.classList.replace("hover-state", "selected-bg");
         pElement.innerHTML = localStorage.key(i);
         pElement.classList.add("selected");
         theTask.appendChild(pElement);
+        theTask.appendChild(editButton);
         theTask.appendChild(removeButton);
         theTaskContainer.appendChild(theTask);
       }
