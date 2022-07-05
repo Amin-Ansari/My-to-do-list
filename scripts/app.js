@@ -34,12 +34,16 @@ function addCheck(eve) {
       theTask.firstElementChild.nextElementSibling.classList.toggle("selected");
       theTask.classList.toggle("hover-state");
       theTask.classList.toggle("selected-bg");
+      checkBoxToggle(theTask.firstElementChild.firstElementChild);
+      activeCheck(
+        theTask.firstElementChild.firstElementChild,
+        theTask.firstElementChild
+      );
       if (localStorage.getItem(theTask.textContent) == "false") {
         localStorage.setItem(theTask.textContent, "true");
       } else if (localStorage.getItem(theTask.textContent) == "true") {
         localStorage.setItem(theTask.textContent, "false");
       }
-      console.log(theTask.textContent);
     } else if (eve.target.nodeName == "LI") {
       let theTask = eve.target;
       theTask.classList.toggle("hover-state");
@@ -59,10 +63,19 @@ function loadTasks() {
       let taskValue = localStorage.key(i);
       if (localStorage.getItem(taskValue) == "false") {
         let theTask = taskCreator();
+        let checkContainer = document.createElement("div");
+        checkContainer.classList.add("check-box-container");
+        let checkBox = document.createElement("input");
         let pElement = pCreator();
         let removeButton = buttonCreator();
         let editButton = spanCreator();
         pElement.innerHTML = localStorage.key(i);
+        checkBox.setAttribute("type", "checkbox");
+        checkBox.setAttribute("name", "do-check");
+        checkContainer.appendChild(checkBox);
+        checkBox.removeAttribute("checked");
+        activeCheck(checkBox, checkContainer);
+        theTask.appendChild(checkContainer);
         theTask.appendChild(pElement);
         theTask.appendChild(editButton);
         theTask.appendChild(removeButton);
@@ -70,15 +83,40 @@ function loadTasks() {
       } else if (localStorage.getItem(taskValue) == "true") {
         let theTask = taskCreator();
         let pElement = pCreator();
+        let editButton = spanCreator();
         let removeButton = buttonCreator();
         theTask.classList.replace("hover-state", "selected-bg");
         pElement.innerHTML = localStorage.key(i);
         pElement.classList.add("selected");
+        let checkContainer = document.createElement("div");
+        checkContainer.classList.toggle("check-box-container");
+        let checkBox = document.createElement("input");
+        checkBox.setAttribute("type", "checkbox");
+        checkBox.setAttribute("name", "do-check");
+        checkBox.setAttribute("checked", "checked");
+        activeCheck(checkBox, checkContainer);
+        checkContainer.appendChild(checkBox);
+        theTask.appendChild(checkContainer);
         theTask.appendChild(pElement);
+        theTask.appendChild(editButton);
         theTask.appendChild(removeButton);
         theTaskContainer.appendChild(theTask);
       }
     }
+  }
+}
+function checkBoxToggle(checkBox) {
+  if (!checkBox.getAttribute("checked")) {
+    checkBox.setAttribute("checked", "checked");
+  } else if (checkBox.getAttribute("checked")) {
+    checkBox.removeAttribute("checked");
+  }
+}
+function activeCheck(input, container) {
+  if (input.getAttribute("checked")) {
+    container.classList.add("check-mark");
+  } else if (!input.getAttribute("checked")) {
+    container.classList.remove("check-mark");
   }
 }
 function addTaskToLocal(task) {
@@ -116,3 +154,10 @@ function spanCreator() {
   let theELement = document.createElement("span");
   return theELement;
 }
+
+let checkContainer = document.createElement("div");
+checkContainer.classList.toggle("check-box-container");
+let checkBox = document.createElement("input");
+checkBox.setAttribute("type", "checkbox");
+checkBox.setAttribute("name", "do-check");
+checkContainer.appendChild(checkBox);
