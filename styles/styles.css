@@ -183,6 +183,7 @@ body {
   left: 0px;
   cursor: pointer;
   opacity: 0;
+  z-index: 4;
 }
 .check-mark::before {
   content: "\f00c";

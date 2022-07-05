@@ -118,3 +118,18 @@
 //   let theELement = document.createElement("span");
 //   return theELement;
 // }
+let test = document.querySelector(".check-box-container > input");
+let ttt = document.querySelector(".check-box-container ");
+test.addEventListener("click", function () {
+  if (!test.checked) {
+    test.setAttribute("checked", "checked");
+    if (test.getAttribute("checked")) {
+      ttt.classList.add("check-mark");
+    }
+  } else {
+    test.removeAttribute("checked");
+    if (!test.getAttribute("checked")) {
+      ttt.classList.remove("check-mark");
+    }
+  }
+});
