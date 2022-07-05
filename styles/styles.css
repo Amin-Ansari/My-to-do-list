@@ -156,15 +156,7 @@ body {
   padding: 0px 5px;
   letter-spacing: 0px;
 }
-/* .checks {
-  width: 43px;
-  height: 40px;
-  border-radius: 100px;
-}
-.checks:checked {
-  accent-color: #42c2ff;
-  border-radius: 100%;
-} */
+
 .check-box-container {
   width: 37px;
   height: 34px;
