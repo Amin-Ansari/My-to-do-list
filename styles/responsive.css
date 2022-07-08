@@ -38,6 +38,9 @@
   .button-justify {
     justify-content: flex-end;
   }
+  .calendar-f-size {
+    font-size: 22px;
+  }
 }
 @media all and (min-width: 556px) {
   .heading-font {
@@ -79,6 +82,9 @@
   .button-justify {
     justify-content: flex-end;
   }
+  .calendar-f-size {
+    font-size: 23px;
+  }
 }
 @media all and (min-width: 768px) {
   .heading-font {
@@ -119,6 +125,9 @@
   }
   .button-justify {
     justify-content: flex-end;
+  }
+  .calendar-f-size {
+    font-size: 23px;
   }
 }
 
@@ -162,6 +171,9 @@
   .button-justify {
     justify-content: flex-end;
   }
+  .calendar-f-size {
+    font-size: 23px;
+  }
 }
 @media all and (min-width: 1200px) {
   .heading-font {
@@ -193,11 +205,13 @@
     background-color: #42c2ff;
     transition: all 0.3s;
   }
+  .calendar-f-size {
+    font-size: 23px;
+  }
   .add-task-container input[type="button"]:hover {
     background-color: #0ee192;
     transform: scale(1.05);
-    font-size: 24px;
-  }
+    }
   .button-justify {
     justify-content: flex-end;
   }
