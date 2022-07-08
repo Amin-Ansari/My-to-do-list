@@ -41,6 +41,10 @@
   .calendar-f-size {
     font-size: 22px;
   }
+  .check-box-container {
+    width: 45px;
+    height: 35px;
+  }
 }
 @media all and (min-width: 556px) {
   .heading-font {
@@ -211,7 +215,7 @@
   .add-task-container input[type="button"]:hover {
     background-color: #0ee192;
     transform: scale(1.05);
-    }
+  }
   .button-justify {
     justify-content: flex-end;
   }
