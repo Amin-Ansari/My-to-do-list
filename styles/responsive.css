@@ -17,24 +17,39 @@
     width: 30%;
   }
   .add-task-container input[type="button"] {
-    width: 80%;
-    height: 90%;
+    width: 53%;
+    height: 85%;
     border-radius: 5px;
     color: #fff;
     border: none;
-    font-size: 19px;
+    font-size: 16px;
     font-weight: normal;
-    line-height: 40px;
     background-color: #42c2ff;
     transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
   }
   .add-task-container input[type="button"]:hover {
     background-color: #0ee192;
     transform: scale(1.03);
-    font-size: 20px;
   }
   .button-justify {
     justify-content: flex-end;
+  }
+  .calendar-f-size {
+    font-size: 22px;
+  }
+  .check-box-container {
+    width: 45px;
+    height: 35px;
+  }
+  .task > button {
+    width: 40px;
+  }
+  .task > button::after {
+    font-size: 21px;
   }
 }
 @media all and (min-width: 556px) {
@@ -56,24 +71,29 @@
     width: 30%;
   }
   .add-task-container input[type="button"] {
-    width: 80%;
-    height: 90%;
+    width: 40%;
+    height: 75%;
     border-radius: 5px;
     color: #fff;
     border: none;
-    font-size: 19px;
+    font-size: 16px;
     font-weight: normal;
-    line-height: 40px;
     background-color: #42c2ff;
     transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
   }
   .add-task-container input[type="button"]:hover {
     background-color: #0ee192;
     transform: scale(1.03);
-    font-size: 20px;
   }
   .button-justify {
     justify-content: flex-end;
+  }
+  .calendar-f-size {
+    font-size: 23px;
   }
 }
 @media all and (min-width: 768px) {
@@ -95,24 +115,29 @@
     width: 15%;
   }
   .add-task-container input[type="button"] {
-    width: 75%;
-    height: 90%;
+    width: 60%;
+    height: 75%;
     border-radius: 5px;
     color: #fff;
     border: none;
     font-size: 19px;
     font-weight: normal;
-    line-height: 40px;
     background-color: #42c2ff;
     transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
   }
   .add-task-container input[type="button"]:hover {
     background-color: #0ee192;
     transform: scale(1.03);
-    font-size: 20px;
   }
   .button-justify {
     justify-content: flex-end;
+  }
+  .calendar-f-size {
+    font-size: 23px;
   }
 }
 
@@ -135,24 +160,29 @@
     width: 15%;
   }
   .add-task-container input[type="button"] {
-    width: 50%;
-    height: 90%;
+    width: 60%;
+    height: 75%;
     border-radius: 5px;
     color: #fff;
     border: none;
-    font-size: 22px;
+    font-size: 19px;
     font-weight: normal;
-    line-height: 40px;
     background-color: #42c2ff;
     transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
   }
   .add-task-container input[type="button"]:hover {
     background-color: #0ee192;
-    transform: scale(1.05);
-    font-size: 24px;
+    transform: scale(1.03);
   }
   .button-justify {
     justify-content: flex-end;
+  }
+  .calendar-f-size {
+    font-size: 23px;
   }
 }
 @media all and (min-width: 1200px) {
@@ -185,10 +215,12 @@
     background-color: #42c2ff;
     transition: all 0.3s;
   }
+  .calendar-f-size {
+    font-size: 23px;
+  }
   .add-task-container input[type="button"]:hover {
     background-color: #0ee192;
     transform: scale(1.05);
-    font-size: 24px;
   }
   .button-justify {
     justify-content: flex-end;
