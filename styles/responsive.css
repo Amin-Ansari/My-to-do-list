@@ -45,6 +45,12 @@
     width: 45px;
     height: 35px;
   }
+  .task > button {
+    width: 40px;
+  }
+  .task > button::after {
+    font-size: 21px;
+  }
 }
 @media all and (min-width: 556px) {
   .heading-font {
