@@ -132,6 +132,7 @@ body {
   font-size: 1.2em;
   padding: 7px 12px;
   height: 60px;
+  overflow: hidden;
   display: flex;
   justify-content: space-between !important;
   cursor: pointer;
