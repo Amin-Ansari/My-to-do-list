@@ -1,4 +1,5 @@
 let theInputes = document.querySelectorAll("input");
+let theAddButton = document.querySelector("input[type=button]");
 let removeButtons = document.querySelectorAll("button");
 let theContainer = document.querySelector("section");
 let theTaskContainer = document.querySelector("ul");
@@ -10,14 +11,14 @@ theForm.addEventListener("keydown", function (e) {
   }
 });
 
-theInputes[0].addEventListener("keydown", function (e) {
+theAddButton.addEventListener("keydown", function (e) {
   if (e.code == "Enter") {
     e.preventDefault();
     addTask();
   }
 });
 document.addEventListener("DOMContentLoaded", loadTasks);
-theInputes[1].addEventListener("click", addTask);
+theAddButton.addEventListener("click", addTask);
 theContainer.addEventListener("click", addCheck);
 document.addEventListener("click", removeTheTask);
 
@@ -133,7 +134,6 @@ function removeTheTask(eve) {
         loadTasks();
       }
     }
-    theTaskContainer.removeChild(theTask);
   }
 }
 function taskCreator() {
