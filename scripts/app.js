@@ -11,9 +11,8 @@ theForm.addEventListener("keydown", function (e) {
   }
 });
 
-theAddButton.addEventListener("keydown", function (e) {
+document.addEventListener("keydown", function (e) {
   if (e.code == "Enter") {
-    e.preventDefault();
     addTask();
   }
 });
