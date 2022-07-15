@@ -11,9 +11,8 @@ theForm.addEventListener("keydown", function (e) {
   }
 });
 
-theAddButton.addEventListener("keydown", function (e) {
+document.addEventListener("keydown", function (e) {
   if (e.code == "Enter") {
-    e.preventDefault();
     addTask();
   }
 });
@@ -60,7 +59,7 @@ function addCheck(eve) {
 function loadTasks() {
   document.querySelector(".task-container").innerHTML = "";
   if (localStorage.length) {
-    for (let i = 0; i < localStorage.length; i++) {
+    for (let i = localStorage.length - 1; i >= 0; i--) {
       let taskValue = localStorage.key(i);
       if (localStorage.getItem(taskValue) == "false") {
         let theTask = taskCreator();
