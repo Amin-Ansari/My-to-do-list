@@ -4,7 +4,14 @@ let removeButtons = document.querySelectorAll("button");
 let theContainer = document.querySelector("section");
 let theTaskContainer = document.querySelector("ul");
 let theForm = document.querySelector("form");
+let calendarInput = document.querySelector("input[type=date]");
+let date = new Date();
+calendarInput.value = setCalendar();
+console.log(calendarInput.value);
 
+calendarInput.addEventListener("change", function () {
+  console.log(calendarInput.value);
+});
 theForm.addEventListener("keydown", function (e) {
   if (e.code === "Enter") {
     e.preventDefault();
@@ -153,10 +160,23 @@ function spanCreator() {
   let theELement = document.createElement("span");
   return theELement;
 }
+function setCalendar() {
+  let dateList = [];
+  dateList.push(date.getFullYear());
+  dateList.push(date.getMonth());
+  dateList.push(date.getDate());
+  for (let i = 0; i < dateList.length; i++) {
+    if (dateList[i] < 10) {
+      dateList[i] = "0" + String(dateList[i]);
+    }
+  }
+  let todayDate = `${dateList[0]}-${dateList[1]}-${dateList[2]}`;
+  return todayDate;
+}
 
-let checkContainer = document.createElement("div");
-checkContainer.classList.toggle("check-box-container");
-let checkBox = document.createElement("input");
-checkBox.setAttribute("type", "checkbox");
-checkBox.setAttribute("name", "do-check");
-checkContainer.appendChild(checkBox);
+// let checkContainer = document.createElement("div");
+// checkContainer.classList.toggle("check-box-container");
+// let checkBox = document.createElement("input");
+// checkBox.setAttribute("type", "checkbox");
+// checkBox.setAttribute("name", "do-check");
+// checkContainer.appendChild(checkBox);
