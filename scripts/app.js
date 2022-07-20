@@ -8,7 +8,11 @@ let calendarInput = document.querySelector("input[type=date]");
 let date = new Date();
 calendarInput.value = setCalendar();
 let taskList = [];
+console.log(calendarInput.value);
 
+calendarInput.addEventListener("change", function () {
+  console.log(calendarInput.value);
+});
 theForm.addEventListener("keydown", function (e) {
   if (e.code === "Enter") {
     e.preventDefault();
