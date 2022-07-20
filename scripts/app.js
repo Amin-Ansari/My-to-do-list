@@ -62,50 +62,56 @@ function addCheck(eve) {
 }
 function loadTasks() {
   document.querySelector(".task-container").innerHTML = "";
-  if (localStorage.length) {
-    for (let i = localStorage.length - 1; i >= 0; i--) {
-      let taskValue = localStorage.key(i);
-      if (localStorage.getItem(taskValue) == "false") {
-        let theTask = taskCreator();
-        let checkContainer = document.createElement("div");
-        checkContainer.classList.add("check-box-container");
-        let checkBox = document.createElement("input");
-        let pElement = pCreator();
-        let removeButton = buttonCreator();
-        let editButton = spanCreator();
-        pElement.innerHTML = localStorage.key(i);
-        checkBox.setAttribute("type", "checkbox");
-        checkBox.setAttribute("name", "do-check");
-        checkContainer.appendChild(checkBox);
-        checkBox.removeAttribute("checked");
-        activeCheck(checkBox, checkContainer);
-        theTask.appendChild(checkContainer);
-        theTask.appendChild(pElement);
-        theTask.appendChild(editButton);
-        theTask.appendChild(removeButton);
-        theTaskContainer.appendChild(theTask);
-      } else if (localStorage.getItem(taskValue) == "true") {
-        let theTask = taskCreator();
-        let pElement = pCreator();
-        let editButton = spanCreator();
-        let removeButton = buttonCreator();
-        theTask.classList.replace("hover-state", "selected-bg");
-        pElement.innerHTML = localStorage.key(i);
-        pElement.classList.add("selected");
-        let checkContainer = document.createElement("div");
-        checkContainer.classList.toggle("check-box-container");
-        let checkBox = document.createElement("input");
-        checkBox.setAttribute("type", "checkbox");
-        checkBox.setAttribute("name", "do-check");
-        checkBox.setAttribute("checked", "checked");
-        activeCheck(checkBox, checkContainer);
-        checkContainer.appendChild(checkBox);
-        theTask.appendChild(checkContainer);
-        theTask.appendChild(pElement);
-        theTask.appendChild(editButton);
-        theTask.appendChild(removeButton);
-        theTaskContainer.appendChild(theTask);
-      }
+  // if (localStorage.length) {
+  //   for (let i = localStorage.length - 1; i >= 0; i--) {
+  //     let taskValue = localStorage.key(i);
+  //     if (localStorage.getItem(taskValue) == "false") {
+  //       let theTask = taskCreator();
+  //       let checkContainer = document.createElement("div");
+  //       checkContainer.classList.add("check-box-container");
+  //       let checkBox = document.createElement("input");
+  //       let pElement = pCreator();
+  //       let removeButton = buttonCreator();
+  //       let editButton = spanCreator();
+  //       pElement.innerHTML = localStorage.key(i);
+  //       checkBox.setAttribute("type", "checkbox");
+  //       checkBox.setAttribute("name", "do-check");
+  //       checkContainer.appendChild(checkBox);
+  //       checkBox.removeAttribute("checked");
+  //       activeCheck(checkBox, checkContainer);
+  //       theTask.appendChild(checkContainer);
+  //       theTask.appendChild(pElement);
+  //       theTask.appendChild(editButton);
+  //       theTask.appendChild(removeButton);
+  //       theTaskContainer.appendChild(theTask);
+  //     } else if (localStorage.getItem(taskValue) == "true") {
+  //       let theTask = taskCreator();
+  //       let pElement = pCreator();
+  //       let editButton = spanCreator();
+  //       let removeButton = buttonCreator();
+  //       theTask.classList.replace("hover-state", "selected-bg");
+  //       pElement.innerHTML = localStorage.key(i);
+  //       pElement.classList.add("selected");
+  //       let checkContainer = document.createElement("div");
+  //       checkContainer.classList.toggle("check-box-container");
+  //       let checkBox = document.createElement("input");
+  //       checkBox.setAttribute("type", "checkbox");
+  //       checkBox.setAttribute("name", "do-check");
+  //       checkBox.setAttribute("checked", "checked");
+  //       activeCheck(checkBox, checkContainer);
+  //       checkContainer.appendChild(checkBox);
+  //       theTask.appendChild(checkContainer);
+  //       theTask.appendChild(pElement);
+  //       theTask.appendChild(editButton);
+  //       theTask.appendChild(removeButton);
+  //       theTaskContainer.appendChild(theTask);
+  //     }
+  //   }
+  // }
+  taskList = JSON.parse(localStorage.getItem(calendarInput.value));
+  if (taskList) {
+    for (let element of taskList) {
+      console.log(element);
     }
   }
 }
@@ -127,13 +133,13 @@ function addTaskToLocal(task) {
   taskList = JSON.parse(localStorage.getItem(calendarInput.value));
   if (taskList) {
     taskList.push({
-      taseName: `${task}`,
+      taskName: `${task}`,
       taskStatus: "false",
     });
   } else {
     taskList = [
       {
-        taseName: `${task}`,
+        taskName: `${task}`,
         taskStatus: "false",
       },
     ];
