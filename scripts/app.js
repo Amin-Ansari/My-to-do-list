@@ -129,13 +129,8 @@ function addTaskToLocal(task) {
 function removeTheTask(eve) {
   if (eve.target.nodeName == "BUTTON") {
     let theTask = eve.target.parentElement;
-    let allLi = document.querySelectorAll("li");
-    for (let i = 0; i < localStorage.length; i++) {
-      if (allLi[i] === theTask) {
-        localStorage.removeItem(localStorage.key(i));
-        loadTasks();
-      }
-    }
+    localStorage.removeItem(theTask.textContent);
+    loadTasks();
   }
 }
 function taskCreator() {
