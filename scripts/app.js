@@ -162,7 +162,13 @@ function addTaskToLocal(task) {
 function removeTheTask(eve) {
   if (eve.target.nodeName == "BUTTON") {
     let theTask = eve.target.parentElement;
-    localStorage.removeItem(theTask.textContent);
+    for (let i = 0; i < taskList.length; i++) {
+      if (taskList[i].taskName == theTask.textContent) {
+        taskList.splice(i, 1);
+        console.log(taskList);
+        localStorage.setItem(calendarInput.value, JSON.stringify(taskList));
+      }
+    }
     loadTasks();
   }
 }
