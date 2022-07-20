@@ -7,6 +7,7 @@ let theForm = document.querySelector("form");
 let calendarInput = document.querySelector("input[type=date]");
 let date = new Date();
 calendarInput.value = setCalendar();
+let taskList = [];
 
 theForm.addEventListener("keydown", function (e) {
   if (e.code === "Enter") {
@@ -123,7 +124,22 @@ function activeCheck(input, container) {
   }
 }
 function addTaskToLocal(task) {
-  localStorage.setItem(task, "false");
+  taskList = JSON.parse(localStorage.getItem(calendarInput.value));
+  if (taskList) {
+    taskList.push({
+      taseName: `${task}`,
+      taskStatus: "false",
+    });
+  } else {
+    taskList = [
+      {
+        taseName: `${task}`,
+        taskStatus: "false",
+      },
+    ];
+  }
+  localStorage.setItem(calendarInput.value, JSON.stringify(taskList));
+  taskListReset();
   loadTasks();
 }
 function removeTheTask(eve) {
@@ -165,6 +181,9 @@ function setCalendar() {
   return todayDate;
 }
 
+function taskListReset() {
+  taskList = [];
+}
 // let checkContainer = document.createElement("div");
 // checkContainer.classList.toggle("check-box-container");
 // let checkBox = document.createElement("input");
