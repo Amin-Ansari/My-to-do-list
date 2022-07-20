@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", loadTasks);
 theAddButton.addEventListener("click", addTask);
 theContainer.addEventListener("click", addCheck);
 document.addEventListener("click", removeTheTask);
-
+calendarInput.addEventListener("change", loadTasks);
 function addTask() {
   if (theInputes[0].value) {
     addTaskToLocal(theInputes[0].value);
@@ -43,6 +43,17 @@ function addCheck(eve) {
         theTask.firstElementChild.firstElementChild,
         theTask.firstElementChild
       );
+      for (let element of taskList) {
+        if (element.taskName == theTask.textContent) {
+          if (element.taskStatus == "false") {
+            element.taskStatus = "true";
+            localStorage.setItem(calendarInput.value, JSON.stringify(taskList));
+          } else if (element.taskStatus == "true") {
+            element.taskStatus = "false";
+            localStorage.setItem(calendarInput.value, JSON.stringify(taskList));
+          }
+        }
+      }
       if (localStorage.getItem(theTask.textContent) == "false") {
         localStorage.setItem(theTask.textContent, "true");
       } else if (localStorage.getItem(theTask.textContent) == "true") {
@@ -52,10 +63,16 @@ function addCheck(eve) {
       let theTask = eve.target;
       theTask.classList.toggle("hover-state");
       theTask.classList.toggle("selected-bg");
-      if (localStorage.getItem(theTask.textContent) == "false") {
-        localStorage.setItem(theTask.textContent, "true");
-      } else if (localStorage.getItem(theTask.textContent) == "true") {
-        localStorage.setItem(theTask.textContent, "false");
+      for (let element of taskList) {
+        if (element.taskName == theTask.textContent) {
+          if (element.taskStatus == "false") {
+            element.taskStatus = "true";
+            console.log(taskList);
+          } else if (element.taskStatus == "true") {
+            element.taskStatus = "false";
+            console.log(taskList);
+          }
+        }
       }
     }
   }
@@ -84,7 +101,6 @@ function loadTasks() {
         theTask.appendChild(editButton);
         theTask.appendChild(removeButton);
         theTaskContainer.appendChild(theTask);
-        console.log(taskList[i].taskName);
       } else if (taskList[i].taskStatus == "true") {
         let theTask = taskCreator();
         let pElement = pCreator();
@@ -171,7 +187,7 @@ function spanCreator() {
 function setCalendar() {
   let dateList = [];
   dateList.push(date.getFullYear());
-  dateList.push(date.getMonth());
+  dateList.push(date.getMonth() + 1);
   dateList.push(date.getDate());
   for (let i = 0; i < dateList.length; i++) {
     if (dateList[i] < 10) {
