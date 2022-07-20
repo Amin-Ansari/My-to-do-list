@@ -62,56 +62,51 @@ function addCheck(eve) {
 }
 function loadTasks() {
   document.querySelector(".task-container").innerHTML = "";
-  // if (localStorage.length) {
-  //   for (let i = localStorage.length - 1; i >= 0; i--) {
-  //     let taskValue = localStorage.key(i);
-  //     if (localStorage.getItem(taskValue) == "false") {
-  //       let theTask = taskCreator();
-  //       let checkContainer = document.createElement("div");
-  //       checkContainer.classList.add("check-box-container");
-  //       let checkBox = document.createElement("input");
-  //       let pElement = pCreator();
-  //       let removeButton = buttonCreator();
-  //       let editButton = spanCreator();
-  //       pElement.innerHTML = localStorage.key(i);
-  //       checkBox.setAttribute("type", "checkbox");
-  //       checkBox.setAttribute("name", "do-check");
-  //       checkContainer.appendChild(checkBox);
-  //       checkBox.removeAttribute("checked");
-  //       activeCheck(checkBox, checkContainer);
-  //       theTask.appendChild(checkContainer);
-  //       theTask.appendChild(pElement);
-  //       theTask.appendChild(editButton);
-  //       theTask.appendChild(removeButton);
-  //       theTaskContainer.appendChild(theTask);
-  //     } else if (localStorage.getItem(taskValue) == "true") {
-  //       let theTask = taskCreator();
-  //       let pElement = pCreator();
-  //       let editButton = spanCreator();
-  //       let removeButton = buttonCreator();
-  //       theTask.classList.replace("hover-state", "selected-bg");
-  //       pElement.innerHTML = localStorage.key(i);
-  //       pElement.classList.add("selected");
-  //       let checkContainer = document.createElement("div");
-  //       checkContainer.classList.toggle("check-box-container");
-  //       let checkBox = document.createElement("input");
-  //       checkBox.setAttribute("type", "checkbox");
-  //       checkBox.setAttribute("name", "do-check");
-  //       checkBox.setAttribute("checked", "checked");
-  //       activeCheck(checkBox, checkContainer);
-  //       checkContainer.appendChild(checkBox);
-  //       theTask.appendChild(checkContainer);
-  //       theTask.appendChild(pElement);
-  //       theTask.appendChild(editButton);
-  //       theTask.appendChild(removeButton);
-  //       theTaskContainer.appendChild(theTask);
-  //     }
-  //   }
-  // }
   taskList = JSON.parse(localStorage.getItem(calendarInput.value));
   if (taskList) {
-    for (let element of taskList) {
-      console.log(element);
+    for (let i = 0; i < taskList.length; i++) {
+      if (taskList[i].taskStatus == "false") {
+        let theTask = taskCreator();
+        let checkContainer = document.createElement("div");
+        checkContainer.classList.add("check-box-container");
+        let checkBox = document.createElement("input");
+        let pElement = pCreator();
+        let removeButton = buttonCreator();
+        let editButton = spanCreator();
+        pElement.innerHTML = taskList[i].taskName;
+        checkBox.setAttribute("type", "checkbox");
+        checkBox.setAttribute("name", "do-check");
+        checkContainer.appendChild(checkBox);
+        checkBox.removeAttribute("checked");
+        activeCheck(checkBox, checkContainer);
+        theTask.appendChild(checkContainer);
+        theTask.appendChild(pElement);
+        theTask.appendChild(editButton);
+        theTask.appendChild(removeButton);
+        theTaskContainer.appendChild(theTask);
+        console.log(taskList[i].taskName);
+      } else if (taskList[i].taskStatus == "true") {
+        let theTask = taskCreator();
+        let pElement = pCreator();
+        let editButton = spanCreator();
+        let removeButton = buttonCreator();
+        theTask.classList.replace("hover-state", "selected-bg");
+        pElement.innerHTML = taskList[i].taskName;
+        pElement.classList.add("selected");
+        let checkContainer = document.createElement("div");
+        checkContainer.classList.toggle("check-box-container");
+        let checkBox = document.createElement("input");
+        checkBox.setAttribute("type", "checkbox");
+        checkBox.setAttribute("name", "do-check");
+        checkBox.setAttribute("checked", "checked");
+        activeCheck(checkBox, checkContainer);
+        checkContainer.appendChild(checkBox);
+        theTask.appendChild(checkContainer);
+        theTask.appendChild(pElement);
+        theTask.appendChild(editButton);
+        theTask.appendChild(removeButton);
+        theTaskContainer.appendChild(theTask);
+      }
     }
   }
 }
