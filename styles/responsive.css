@@ -51,6 +51,10 @@
   .task > button::after {
     font-size: 21px;
   }
+  .change-box {
+    width: 100%;
+    max-width: 300px;
+  }
 }
 @media all and (min-width: 556px) {
   .heading-font {

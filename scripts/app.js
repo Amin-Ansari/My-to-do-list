@@ -7,6 +7,7 @@ let theForm = document.querySelector("form");
 let calendarInput = document.querySelector(".calendar-input");
 let date = new persianDate();
 let taskList = [];
+let changeModalBox = document.querySelector(".change-box");
 
 jalaliDatepicker.startWatch();
 // The bottom code set todays's date as default value of datepicker
@@ -26,6 +27,7 @@ document.addEventListener("DOMContentLoaded", loadTasks);
 theAddButton.addEventListener("click", addTask);
 theContainer.addEventListener("click", addCheck);
 document.addEventListener("click", removeTheTask);
+document.addEventListener("click", editTheTask);
 calendarInput.addEventListener("change", loadTasks);
 function addTask() {
   if (theInputes[0].value) {
@@ -167,7 +169,6 @@ function removeTheTask(eve) {
     for (let i = 0; i < taskList.length; i++) {
       if (taskList[i].taskName == theTask.textContent) {
         taskList.splice(i, 1);
-        console.log(taskList);
         localStorage.setItem(calendarInput.value, JSON.stringify(taskList));
       }
     }
@@ -195,7 +196,22 @@ function spanCreator() {
 function setCalendar() {
   return date.toLocale("en").format("YYYY/MM/DD");
 }
-
 function taskListReset() {
   taskList = [];
+}
+function editTheTask(evetObject) {
+  if (evetObject.target.nodeName == "SPAN") {
+    let parentElem = evetObject.target.parentElement;
+    for (let i = 0; i < taskList.length; i++) {
+      if (parentElem.textContent === taskList[i].taskName) {
+        let editedTask = taskList[i];
+        editedTask.taskName = "test";
+        taskList.splice(i, 1, editedTask);
+        console.log(taskList);
+      }
+    }
+    changeModalBox.style = " transform: translateX(50%) scale(1)";
+  } else {
+    changeModalBox.style = " transform: translateX(50%) scale(0)";
+  }
 }
