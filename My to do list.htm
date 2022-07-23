@@ -58,7 +58,20 @@
         <li class="task selected-bg"></li>
       </ul>
     </section>
-    <div class="change-box"></div>
+    <div class="change-box">
+      <div class="modal-header"><h5>Changeing task</h5></div>
+      <form class="edit-text-form" action="javascript:void(0)" method="get">
+        <input
+          class="edit-text-input"
+          type="text"
+          placeholder="Enter the new task"
+        />
+      </form>
+      <div class="button-container">
+        <button class="cancel-button" type="button">cancel</button>
+        <button class="submit-button" type="button">OK</button>
+      </div>
+    </div>
     <script
       src="node_modules/persian-date/dist/persian-date.js"
       type="text/javascript"
