@@ -32,6 +32,11 @@ theContainer.addEventListener("click", addCheck);
 document.addEventListener("click", removeTheTask);
 document.addEventListener("click", openModal);
 modalSubmit.addEventListener("click", submitTheEdit);
+editedtText.addEventListener("keypress", function (even) {
+  if (even.code === "Enter") {
+    submitTheEdit();
+  }
+});
 calendarInput.addEventListener("change", loadTasks);
 function addTask() {
   if (theInputes[0].value) {
@@ -207,6 +212,7 @@ function openModal(evetObject) {
   if (evetObject.target.nodeName == "SPAN") {
     let parentElem = evetObject.target.parentElement;
     changeModalBox.style = " transform: translateX(50%) scale(1)";
+    editedtText.focus();
     for (let i = 0; i < taskList.length; i++) {
       if (parentElem.textContent === taskList[i].taskName) {
         selectedIndex = i;
@@ -219,10 +225,9 @@ function openModal(evetObject) {
   }
 }
 function submitTheEdit() {
-  let editedTask = taskList[selectedIndex];
-  editedTask.taskName = editedtText.value;
-  taskList.splice(selectedIndex, 1, editedTask);
+  taskList[selectedIndex].taskName = editedtText.value;
   localStorage.setItem(calendarInput.value, JSON.stringify(taskList));
-  editedTask.taskName = editedtText.value = "";
+  editedtText.value = "";
   changeModalBox.style = " transform: translateX(50%) scale(0)";
+  loadTasks();
 }
