@@ -267,6 +267,7 @@ body {
   transition: transform 0.3s;
   transform: translateX(50%) scale(0);
   overflow: hidden;
+  z-index: 3;
 }
 .modal-header {
   width: 100%;
@@ -274,7 +275,6 @@ body {
   background: #42c2ff;
   color: #fff;
   padding: 20px 15px;
-  z-index: 5;
 }
 .edit-text-form {
   height: 46.8%;

@@ -9,6 +9,9 @@ let date = new persianDate();
 let taskList = [];
 let changeModalBox = document.querySelector(".change-box");
 let editedtText = document.querySelector(".edit-text-input");
+let modalSubmit = document.querySelector(".submit-button");
+let selectedIndex;
+
 jalaliDatepicker.startWatch();
 // The bottom code set todays's date as default value of datepicker
 calendarInput.value = setCalendar();
@@ -27,7 +30,8 @@ document.addEventListener("DOMContentLoaded", loadTasks);
 theAddButton.addEventListener("click", addTask);
 theContainer.addEventListener("click", addCheck);
 document.addEventListener("click", removeTheTask);
-document.addEventListener("click", editTheTask);
+document.addEventListener("click", openModal);
+modalSubmit.addEventListener("click", submitTheEdit);
 calendarInput.addEventListener("change", loadTasks);
 function addTask() {
   if (theInputes[0].value) {
@@ -199,13 +203,13 @@ function setCalendar() {
 function taskListReset() {
   taskList = [];
 }
-function editTheTask(evetObject) {
-  let modalSubmit = document.querySelector(".submit-button");
+function openModal(evetObject) {
   if (evetObject.target.nodeName == "SPAN") {
     let parentElem = evetObject.target.parentElement;
     changeModalBox.style = " transform: translateX(50%) scale(1)";
     for (let i = 0; i < taskList.length; i++) {
       if (parentElem.textContent === taskList[i].taskName) {
+        selectedIndex = i;
       }
     }
   } else {
@@ -214,12 +218,11 @@ function editTheTask(evetObject) {
     }
   }
 }
-
-// if ((evetObject.target = modalSubmit)) {
-//   let editedTask = taskList[i];
-//   editedTask.taskName = editedtText.value;
-//   editedTask.taskName = editedtText.value = "";
-//   taskList.splice(i, 1, editedTask);
-//   localStorage.setItem(calendarInput.value, JSON.stringify(taskList));
-//   changeModalBox.style = " transform: translateX(50%) scale(0)";
-// }
+function submitTheEdit() {
+  let editedTask = taskList[selectedIndex];
+  editedTask.taskName = editedtText.value;
+  taskList.splice(selectedIndex, 1, editedTask);
+  localStorage.setItem(calendarInput.value, JSON.stringify(taskList));
+  editedTask.taskName = editedtText.value = "";
+  changeModalBox.style = " transform: translateX(50%) scale(0)";
+}
