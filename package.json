@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "@majidh1/jalalidatepicker": "^0.6.0"
+  },
+  "devDependencies": {
+    "persian-date": "^1.1.0"
   }
 }

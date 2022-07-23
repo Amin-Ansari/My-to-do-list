@@ -4,10 +4,13 @@ let removeButtons = document.querySelectorAll("button");
 let theContainer = document.querySelector("section");
 let theTaskContainer = document.querySelector("ul");
 let theForm = document.querySelector("form");
-let calendarInput = document.querySelector("input[type=date]");
-let date = new Date();
-calendarInput.value = setCalendar();
+let calendarInput = document.querySelector(".calendar-input");
+let date = new persianDate();
 let taskList = [];
+
+jalaliDatepicker.startWatch();
+// The bottom code set todays's date as default value of datepicker
+calendarInput.value = setCalendar();
 
 theForm.addEventListener("keydown", function (e) {
   if (e.code === "Enter") {
@@ -190,17 +193,7 @@ function spanCreator() {
   return theELement;
 }
 function setCalendar() {
-  let dateList = [];
-  dateList.push(date.getFullYear());
-  dateList.push(date.getMonth() + 1);
-  dateList.push(date.getDate());
-  for (let i = 0; i < dateList.length; i++) {
-    if (dateList[i] < 10) {
-      dateList[i] = "0" + String(dateList[i]);
-    }
-  }
-  let todayDate = `${dateList[0]}-${dateList[1]}-${dateList[2]}`;
-  return todayDate;
+  return date.toLocale("en").format("YYYY/MM/DD");
 }
 
 function taskListReset() {
