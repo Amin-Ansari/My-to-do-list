@@ -19,7 +19,7 @@ function App() {
           </div>
           <div id="where-category-goes-to"></div>
           <button type="button" className="add-button-style">
-            <i class="fa-regular fa-plus"></i>
+            <FontAwesomeIcon icon="fa-solid fa-plus" />
           </button>
         </Header>
       </AppContainer>

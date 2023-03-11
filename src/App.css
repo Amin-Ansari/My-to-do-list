@@ -1,6 +1,6 @@
 .option-list-style {
   display: flex;
-  padding: 5px 8px;
+  padding: 8px;
 }
 .option-list-style > div {
   margin: 0px 5px;
@@ -13,12 +13,17 @@
   width: max-content;
   margin: auto;
   padding: 5px;
-  font-family: "Font Awesome 5 Free";
+  background-color: transparent;
 }
-.add-button-style > i {
-  font-weight: normal;
-  font-style: normal;
+.add-button-style:hover {
+  cursor: pointer;
+}
+.add-button-style::after {
+  content: "\2b";
   font-family: "Font Awesome 5 Free";
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #9c89b8;
 }
 .off-canvas {
   width: 2.2rem;
@@ -44,7 +49,8 @@
   justify-content: center;
   border: 1.8px solid #9c89b8;
   border-radius: 5px;
-  padding: 7.5px 10px;
+  padding: 0px 10px;
+  align-items: center;
 }
 #where-category-goes-to {
   display: flex;
