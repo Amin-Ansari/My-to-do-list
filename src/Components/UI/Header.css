@@ -1,0 +1,4 @@
+#header {
+  display: grid;
+  grid-template: 100% / repeat(3, auto);
+}

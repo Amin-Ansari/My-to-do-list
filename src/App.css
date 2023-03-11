@@ -1,0 +1,39 @@
+.option-list-style {
+  display: flex;
+  padding: 5px 8px;
+}
+.option-list-style > div {
+  margin: 0px 2px;
+}
+.add-button-style {
+  border: none;
+  width: max-content;
+  margin: auto;
+  padding: 5px;
+}
+.off-canvas {
+  width: 2.2rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+.bar {
+  border-radius: 5px;
+  margin: 3px 0px;
+  width: 80%;
+  height: 2.5px;
+  background: #9c89b8;
+}
+.bar:nth-child(2) {
+  width: 60%;
+}
+.bar:nth-child(3) {
+  width: 40%;
+}
+.switch-button {
+  display: flex;
+  justify-content: center;
+  border: 1.8px solid #9c89b8;
+  border-radius: 5px;
+  padding: 8px 5px;
+}
