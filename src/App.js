@@ -17,11 +17,9 @@ function App() {
             </div>
             <div className="switch-button">Swtich to date</div>
           </div>
-          <div id="where-category-goes-to">
-            dddddddddddddddddddddddddddddddddddd
-          </div>
+          <div id="where-category-goes-to"></div>
           <button type="button" className="add-button-style">
-            <i className="fa-regular fa-square-plus"></i>
+            <i class="fa-regular fa-plus"></i>
           </button>
         </Header>
       </AppContainer>
