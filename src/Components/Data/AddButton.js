@@ -9,25 +9,35 @@ const AddButton = () => {
   const toggleTopicContainer = () => {
     isTopicAppear ? updateAppear(false) : updateAppear(true);
   };
+  const setToFalse = (theFalseValue) => {
+    updateAppear(theFalseValue);
+  };
   return (
-    <button
-      type="button"
-      className="add-button-style"
-      onClick={toggleTopicContainer}
-    >
-      <FontAwesomeIcon icon="fa-solid fa-plus" />
+    <React.Fragment>
       {ReactDom.createPortal(
-        <AddingTopic appearOrNot={isTopicAppear} />,
+        <AddingTopic appearOrNot={isTopicAppear} onHiding={setToFalse} />,
         document.getElementById("where-adding-topic-goes-to")
       )}
-    </button>
+      <button
+        type="button"
+        className="add-button-style"
+        onClick={toggleTopicContainer}
+      >
+        <FontAwesomeIcon icon="fa-solid fa-plus" />
+      </button>
+    </React.Fragment>
   );
 };
 
 const AddingTopic = (props) => {
-  console.log(props.appearOrNot);
+  const hideAddingTopic = () => {
+    props.onHiding(false);
+  };
   return (
-    <div className={`backdrop-shadow ${props.appearOrNot ? "appear" : "hide"}`}>
+    <div
+      className={`backdrop-shadow ${props.appearOrNot ? "appear" : "hide"}`}
+      onClick={hideAddingTopic}
+    >
       <div
         className={`topic-container ${
           props.appearOrNot ? "topict-goes-up" : "hide"
