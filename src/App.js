@@ -8,7 +8,7 @@ import OffCanvas from "./Components/Data/OffCanvas";
 import AddButton from "./Components/Data/AddButton";
 function App() {
   return (
-    <React.Fragment>
+    <div className="App">
       <AppContainer>
         <Header>
           <OptionList>
@@ -18,7 +18,7 @@ function App() {
           <AddButton></AddButton>
         </Header>
       </AppContainer>
-    </React.Fragment>
+    </div>
   );
 }
 

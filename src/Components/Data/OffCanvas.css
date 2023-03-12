@@ -10,12 +10,16 @@
   width: 85%;
   height: 0.18rem;
   background: #9c89b8;
+  transition: all 0.3s ease-in;
 }
 .bar:nth-child(2) {
   width: 60%;
 }
 .bar:nth-child(3) {
   width: 40%;
+}
+.bar.full-width-bar {
+  width: 100%;
 }
 
 @media all and (min-width: 576px) {
