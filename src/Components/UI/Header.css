@@ -1,4 +1,4 @@
 #header {
   display: grid;
-  grid-template: 100% / repeat(3, auto);
+  grid-template: 100% / max-content auto max-content;
 }
