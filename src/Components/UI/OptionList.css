@@ -1,0 +1,23 @@
+.option-list-style {
+  display: flex;
+  padding: 8px;
+}
+.option-list-style > div {
+  margin: 0px 5px;
+}
+.option-list-style > div:hover {
+  cursor: pointer;
+}
+.switch-button {
+  display: none;
+  justify-content: center;
+  border: 1.8px solid #9c89b8;
+  border-radius: 5px;
+  padding: 0px 10px;
+  align-items: center;
+}
+@media all and (min-width: 576px) {
+  .switch-button {
+    display: flex;
+  }
+}

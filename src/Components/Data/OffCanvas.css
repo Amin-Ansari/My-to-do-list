@@ -1,0 +1,25 @@
+.off-canvas-button {
+  width: 2.2rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+.bar {
+  border-radius: 7px;
+  margin: 3px 0px;
+  width: 85%;
+  height: 0.18rem;
+  background: #9c89b8;
+}
+.bar:nth-child(2) {
+  width: 60%;
+}
+.bar:nth-child(3) {
+  width: 40%;
+}
+
+@media all and (min-width: 576px) {
+  .off-canvas-button {
+    display: none;
+  }
+}

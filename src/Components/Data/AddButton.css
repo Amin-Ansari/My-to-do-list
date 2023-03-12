@@ -1,0 +1,17 @@
+.add-button-style {
+  border: none;
+  width: max-content;
+  margin: auto;
+  padding: 5px;
+  background-color: transparent;
+}
+.add-button-style:hover {
+  cursor: pointer;
+}
+.add-button-style::after {
+  content: "\2b";
+  font-family: "Font Awesome 5 Free";
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #9c89b8;
+}
