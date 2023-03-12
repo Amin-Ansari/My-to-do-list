@@ -1,6 +1,7 @@
 import "./OffCanvas.css";
 import { useState } from "react";
 import ReactDom from "react-dom";
+import SwitchButton from "./SwitchButton";
 
 const OffCanvasDrawer = (props) => {
   function hideOffCanvas() {
@@ -12,7 +13,9 @@ const OffCanvasDrawer = (props) => {
       style={{ display: `${props.visibilityState ? "block" : "none"}` }}
       onClick={hideOffCanvas}
     >
-      <div className="offCanvas-menu"></div>
+      <div className="offCanvas-menu">
+        <SwitchButton className={"switch"}></SwitchButton>
+      </div>
     </div>
   );
 };

@@ -38,6 +38,7 @@
   background-color: #fff;
   transform: translateX(-750px);
   animation: menueSlide 0.8s 1 0s ease normal forwards;
+  padding: 40px 10px;
 }
 @media all and (min-width: 576px) {
   .off-canvas-button {
@@ -46,8 +47,25 @@
   .offCanvas-menu {
     max-width: 750px;
   }
+  .back-drop {
+    display: none !important;
+  }
 }
-
+.show-button-on-menu {
+  display: block !important;
+}
+.switch {
+  display: flex;
+  justify-content: center;
+  border: 1.8px solid #9c89b8;
+  border-radius: 5px;
+  padding: 5px 10px;
+  align-items: center;
+  margin-top: 70px;
+}
+.switch:hover {
+  cursor: pointer;
+}
 @keyframes opacity-animation {
   0% {
     background: rgba(40, 40, 40, 0);

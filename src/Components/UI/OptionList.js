@@ -1,9 +1,10 @@
 import "./OptionList.css";
+import SwitchButton from "../Data/SwitchButton";
 const OptionList = (props) => {
   return (
     <div className="option-list-style">
       {props.children}
-      <div className="switch-button">Swtich to date</div>
+      <SwitchButton className={"switch-button"}></SwitchButton>
     </div>
   );
 };
