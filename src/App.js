@@ -6,13 +6,22 @@ import "../node_modules/font-awesome/css/font-awesome.min.css";
 import OptionList from "./Components/UI/OptionList";
 import OffCanvas from "./Components/Data/OffCanvas";
 import AddButton from "./Components/Data/AddButton";
+import { useState } from "react";
+
 function App() {
+  const [appMarginState, updateMarginState] = useState(false);
+  const isVisibil = (givenStateValue) => {
+    updateMarginState(givenStateValue);
+  };
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{ margin: `${appMarginState ? "20px" : "0px"}` }}
+    >
       <AppContainer>
         <Header>
           <OptionList>
-            <OffCanvas></OffCanvas>
+            <OffCanvas onOffCanvasVisibility={isVisibil}></OffCanvas>
           </OptionList>
           <div id="catagory-select-list"></div>
           <AddButton></AddButton>

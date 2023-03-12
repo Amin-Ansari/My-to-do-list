@@ -1,6 +1,7 @@
 .option-list-style {
   display: flex;
   padding: 8px;
+  position: relative;
 }
 .option-list-style > div {
   margin: 0px 5px;

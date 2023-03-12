@@ -1,5 +1,5 @@
 .App {
-  transition: all 0.3s ease;
+  transition: all 0.4s ease-in-out;
 }
 #catagory-select-list {
   display: flex;
