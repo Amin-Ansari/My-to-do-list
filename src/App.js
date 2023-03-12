@@ -14,7 +14,7 @@ function App() {
           <OptionList>
             <OffCanvas></OffCanvas>
           </OptionList>
-          <div id="where-category-goes-to"></div>
+          <div id="catagory-select-list"></div>
           <AddButton></AddButton>
         </Header>
       </AppContainer>
