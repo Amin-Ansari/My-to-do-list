@@ -1,0 +1,9 @@
+.task-section-style {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 0px 11px;
+}
+.task-section-style > div {
+  flex-shrink: 0;
+  width: 100%;
+}

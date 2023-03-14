@@ -9,6 +9,8 @@ import AddButton from "./Components/Data/AddButton";
 import { useState } from "react";
 import CatagoryForm from "./Components/UI/CtagaoryForm";
 import SelectAndOption from "./Components/Data/SelectAndOptions";
+import TaskSection from "./Components/UI/TaskSection";
+import CurrentTaskTitle from "./Components/Data/CurrentTaskTitle";
 
 function App() {
   const [appMarginState, updateMarginState] = useState(false);
@@ -30,6 +32,9 @@ function App() {
           </CatagoryForm>
           <AddButton></AddButton>
         </Header>
+        <TaskSection>
+          <CurrentTaskTitle />
+        </TaskSection>
       </AppContainer>
     </div>
   );
