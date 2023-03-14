@@ -8,6 +8,7 @@ import OffCanvas from "./Components/Data/OffCanvas";
 import AddButton from "./Components/Data/AddButton";
 import { useState } from "react";
 import CatagoryForm from "./Components/UI/CtagaoryForm";
+import SelectAndOption from "./Components/Data/SelectAndOptions";
 
 function App() {
   const [appMarginState, updateMarginState] = useState(false);
@@ -24,7 +25,9 @@ function App() {
           <OptionList>
             <OffCanvas onOffCanvasVisibility={isVisibil}></OffCanvas>
           </OptionList>
-          <CatagoryForm></CatagoryForm>
+          <CatagoryForm>
+            <SelectAndOption></SelectAndOption>
+          </CatagoryForm>
           <AddButton></AddButton>
         </Header>
       </AppContainer>
