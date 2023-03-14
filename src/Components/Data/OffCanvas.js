@@ -2,16 +2,21 @@ import "./OffCanvas.css";
 import { useState } from "react";
 import ReactDom from "react-dom";
 import SwitchButton from "./SwitchButton";
+import { useRef } from "react";
 
 const OffCanvasDrawer = (props) => {
+  const drawerRef = useRef();
   function hideOffCanvas() {
-    props.visibilityState && props.onHidingOffCanvas(false);
+    props.visibilityState
+      ? props.onHidingOffCanvas(false)
+      : props.onHidingOffCanvas(true);
   }
   return (
     <div
       className="back-drop"
       style={{ display: `${props.visibilityState ? "block" : "none"}` }}
       onClick={hideOffCanvas}
+      ref={drawerRef}
     >
       <div className="offCanvas-menu">
         <SwitchButton className={"switch"}></SwitchButton>
@@ -21,9 +26,6 @@ const OffCanvasDrawer = (props) => {
 };
 const OffCanvas = (props) => {
   const [barsState, updateBarsState] = useState(false);
-  function hideMenu(value) {
-    updateBarsState(value);
-  }
   function toggleTheOffCanvas() {
     if (barsState) {
       updateBarsState(false);
@@ -43,7 +45,7 @@ const OffCanvas = (props) => {
       {ReactDom.createPortal(
         <OffCanvasDrawer
           visibilityState={barsState}
-          onHidingOffCanvas={hideMenu}
+          onHidingOffCanvas={toggleTheOffCanvas}
         />,
         document.querySelector("#where-offCavnasMenu-goes")
       )}

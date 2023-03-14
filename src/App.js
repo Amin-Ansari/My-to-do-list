@@ -17,6 +17,7 @@ function App() {
   const [appMarginState, updateMarginState] = useState(false);
   const isVisibil = (givenStateValue) => {
     updateMarginState(givenStateValue);
+    console.log(appMarginState);
   };
   return (
     <div
