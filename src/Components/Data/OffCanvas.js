@@ -7,9 +7,7 @@ import { useRef } from "react";
 const OffCanvasDrawer = (props) => {
   const drawerRef = useRef();
   function hideOffCanvas() {
-    props.visibilityState
-      ? props.onHidingOffCanvas(false)
-      : props.onHidingOffCanvas(true);
+    props.visibilityState && props.onHidingOffCanvas();
   }
   return (
     <div
