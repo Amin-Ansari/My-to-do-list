@@ -1,0 +1,11 @@
+.title-and-time-style {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.05rem;
+}
+.title-and-time-style h6 {
+  font-size: 1.05rem;
+  font-weight: normal;
+}

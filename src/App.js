@@ -12,6 +12,7 @@ import SelectAndOption from "./Components/Data/SelectAndOptions";
 import TaskSection from "./Components/UI/TaskSection";
 import CurrentTaskTitle from "./Components/Data/CurrentTaskTitle";
 import TaskTimer from "./Components/Data/TaskTimer";
+import TitleAndTime from "./Components/Data/TitleAndTime";
 
 function App() {
   const [appMarginState, updateMarginState] = useState(false);
@@ -36,7 +37,9 @@ function App() {
         </Header>
         <TaskSection>
           <CurrentTaskTitle />
-          <TaskTimer></TaskTimer>
+          <TaskTimer>
+            <TitleAndTime></TitleAndTime>
+          </TaskTimer>
         </TaskSection>
       </AppContainer>
     </div>

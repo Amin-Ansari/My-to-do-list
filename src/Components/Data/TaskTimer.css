@@ -6,6 +6,7 @@
   border-radius: 5px;
   display: flex;
   flex-flow: column nowrap;
+  padding: 10px 20px;
 }
 
 @media all and (min-width: 500px) {
