@@ -1,22 +1,36 @@
 .image-wrapper {
-  padding: 5px 30px;
+  padding: 5px 10px;
   margin: 30px 0px;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 .clock-image {
-  width: 100%;
-  max-width: 100%;
+  width: 80%;
+  max-width: 285px;
   height: auto;
 }
-
-@media all and (min-width: 576px) {
-  .image-wrapper {
-    padding: 10px 60px;
-  }
+.arrow {
+  position: absolute;
+  top: 50.5%;
+  left: 53%;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  height: 30%;
 }
-@media all and (min-width: 768px) {
-  .image-wrapper {
-    padding: 10px 200px;
-  }
+.hour-arrow {
+  height: 20%;
+  top: 52%;
+  left: 50.5%;
+}
+.arrow-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #ffc8dd;
 }
