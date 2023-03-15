@@ -13,6 +13,7 @@ import TaskSection from "./Components/UI/TaskSection";
 import CurrentTaskTitle from "./Components/Data/CurrentTaskTitle";
 import TaskTimer from "./Components/Data/TaskTimer";
 import TitleAndTime from "./Components/Data/TitleAndTime";
+import Clock from "./Components/Data/Clock";
 
 function App() {
   const [appMarginState, updateMarginState] = useState(false);
@@ -39,6 +40,7 @@ function App() {
           <CurrentTaskTitle />
           <TaskTimer>
             <TitleAndTime></TitleAndTime>
+            <Clock></Clock>
           </TaskTimer>
         </TaskSection>
       </AppContainer>

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./TitleAndTime.css";
 import "./TitleAndTime.css";
-import { useEffect } from "react";
 
 const TitleAndTime = (props) => {
   const theTime = new Date();

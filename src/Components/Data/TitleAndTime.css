@@ -3,9 +3,10 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.05rem;
+  font-size: 1.7rem;
+  padding-top: 20px;
 }
 .title-and-time-style h6 {
-  font-size: 1.05rem;
+  font-size: 1.7rem;
   font-weight: normal;
 }
