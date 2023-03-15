@@ -31,19 +31,19 @@ const Clock = () => {
     <div className="image-wrapper">
       <img src={ClockSVG} className="clock-image"></img>
       <img
-        src={require("../../images/arrow.png")}
+        src={require("../../images/arrow-2.png")}
         className="arrow hour-arrow"
         style={{
           transform: ` translate(-50%, -50%) rotate(${
-            Number(clockTime.hour) * 30 + Number(clockTime.hour / 6)
+            Number(clockTime.hour) * 30 + Number(clockTime.minute / 3)
           }deg)`,
         }}
       />
       <img
-        src={require("../../images/arrow.png")}
+        src={require("../../images/arrow-1.png")}
         className="arrow"
         style={{
-          transform: ` translate(-50%, -50%) rotate(${
+          transform: `translate(-50%, -50%) rotate(${
             Number(clockTime.minute) * 6
           }deg)`,
         }}

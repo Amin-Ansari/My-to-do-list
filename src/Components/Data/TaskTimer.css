@@ -1,7 +1,7 @@
 .timer-container {
-  border: 1.8px solid #ffc8dd;
+  border: 2px solid #ffc8dd;
   max-width: 100%;
-  max-width: 320px;
+  max-width: 480px;
   margin: 25px auto;
   border-radius: 5px;
   display: flex;
@@ -9,13 +9,8 @@
   padding: 10px 20px;
 }
 
-@media all and (min-width: 500px) {
-  .timer-container {
-    max-width: 420px;
-  }
-}
 @media all and (min-width: 576px) {
   .timer-container {
-    max-width: 800px;
+    max-width: 480px;
   }
 }
