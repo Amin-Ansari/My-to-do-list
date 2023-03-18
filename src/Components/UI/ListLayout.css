@@ -1,0 +1,9 @@
+.list-title {
+  background-color: red;
+}
+.list-title h4 {
+  text-align: right;
+  font-size: 0.8rem;
+  font-weight: normal;
+  margin: 10px 0px;
+}
