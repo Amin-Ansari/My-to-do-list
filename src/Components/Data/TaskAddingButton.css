@@ -1,3 +1,7 @@
+.task-adding-button-container {
+  width: 100%;
+  padding: 1.2rem 0rem;
+}
 .task-adding-button {
   background: #9c89b8;
   color: #fff;
@@ -7,11 +11,11 @@
   width: 100%;
   border: none;
   border-radius: 8px;
-  margin: 1.5rem 0rem;
+  margin: 0rem 0rem;
 }
 @media all and (min-width: 576px) {
-  .task-adding-button {
+  .task-adding-button-container {
     width: 10rem;
-    margin: 1.5rem 0.6rem;
+    padding: 1.2rem 0.5rem 0rem;
   }
 }
