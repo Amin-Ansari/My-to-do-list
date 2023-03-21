@@ -16,10 +16,10 @@
   max-width: 100%;
   padding: 0.46rem;
   border-radius: 8px;
+  font-size: 0.95rem !important;
 }
 
 .input-style {
-  font-size: 0.98rem !important;
   text-align: left;
   background: transparent;
   border: 1.8px solid #9c89b8;
