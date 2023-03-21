@@ -4,13 +4,3 @@
   align-items: center;
   padding: 0px 20px;
 }
-.category-form > select {
-  font-size: 1rem;
-  padding: 8px 10px;
-  width: 100%;
-  max-width: 350px;
-  text-align: left;
-  background: transparent;
-  border: 1.8px solid #9c89b8;
-  border-radius: 10px;
-}

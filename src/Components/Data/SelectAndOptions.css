@@ -1,0 +1,10 @@
+.select-item {
+  font-size: 0.98rem !important;
+  padding: 8px 10px;
+  width: 100%;
+  max-width: 350px;
+  text-align: left;
+  background: transparent;
+  border: 1.8px solid #9c89b8;
+  border-radius: 10px;
+}

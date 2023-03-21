@@ -1,0 +1,35 @@
+.input-wrapper {
+  width: 100%;
+  padding: 0.5rem 0rem;
+}
+.label-style {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-flow: column;
+  flex-shrink: 0;
+}
+.input-style,
+.label-style > select {
+  margin-top: 0.3rem;
+  width: 100% !important;
+  max-width: 100%;
+  padding: 0.46rem;
+  border-radius: 8px;
+}
+
+.input-style {
+  font-size: 0.98rem !important;
+  text-align: left;
+  background: transparent;
+  border: 1.8px solid #9c89b8;
+}
+.input-style:focus {
+  outline: none;
+}
+@media all and (min-width: 576px) {
+  .input-wrapper {
+    width: 50%;
+    padding: 0.5rem 0.6rem;
+  }
+}
