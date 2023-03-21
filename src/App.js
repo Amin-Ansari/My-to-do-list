@@ -7,6 +7,7 @@ import OptionList from "./Components/UI/OptionList";
 import OffCanvas from "./Components/Data/OffCanvas";
 import AddButton from "./Components/Data/AddButton";
 import { useState } from "react";
+import ReactDOM from "react-dom";
 import CatagoryForm from "./Components/UI/CtagaoryForm";
 import SelectAndOption from "./Components/Data/SelectAndOptions";
 import TaskSection from "./Components/UI/TaskSection";
@@ -15,13 +16,13 @@ import TaskTimer from "./Components/Data/TaskTimer";
 import TitleAndTime from "./Components/Data/TitleAndTime";
 import Clock from "./Components/Data/Clock";
 import ToDoList from "./Components/Data/ToDoList";
+import AddSection from "./Components/UI/AddSection";
 
 function App() {
   const [appMarginState, updateMarginState] = useState(false);
   const [topicState, updateTopicState] = useState(false);
   const isVisibil = (givenStateValue) => {
     updateMarginState(givenStateValue);
-    console.log(appMarginState);
   };
   function topicIsChoosen(givenValue) {
     updateTopicState(givenValue);
@@ -50,6 +51,10 @@ function App() {
           <ToDoList></ToDoList>
         </TaskSection>
       </AppContainer>
+      {ReactDOM.createPortal(
+        <AddSection showHideState={topicState} />,
+        document.querySelector("#where-adding-form-goes-to")
+      )}
     </div>
   );
 }

@@ -1,7 +1,13 @@
 import "./AddSection.css";
 
-const AddSection = () => {
-  return <div className="add-section">Hello world</div>;
+const AddSection = (props) => {
+  return (
+    <div
+      className={`add-section ${props.showHideState ? "show-animation" : ""}`}
+    >
+      Hello world
+    </div>
+  );
 };
 
 export default AddSection;
