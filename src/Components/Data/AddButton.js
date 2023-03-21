@@ -4,7 +4,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
-const AddButton = () => {
+const AddButton = (props) => {
   const [isTopicAppear, updateAppear] = useState(false);
   const toggleTopicContainer = () => {
     isTopicAppear ? updateAppear(false) : updateAppear(true);
@@ -12,10 +12,17 @@ const AddButton = () => {
   const setToFalse = (theFalseValue) => {
     updateAppear(theFalseValue);
   };
+  const topicSelected = () => {
+    props.onTopicClick(true);
+  };
   return (
     <React.Fragment>
       {ReactDom.createPortal(
-        <AddingTopic appearOrNot={isTopicAppear} onHiding={setToFalse} />,
+        <AddingTopic
+          appearOrNot={isTopicAppear}
+          onHiding={setToFalse}
+          onTopicChoose={topicSelected}
+        />,
         document.getElementById("where-adding-topic-goes-to")
       )}
       <button
@@ -43,9 +50,9 @@ const AddingTopic = (props) => {
           props.appearOrNot ? "topict-goes-up" : "hide"
         }`}
       >
-        <div>Add task</div>
-        <div>Add list</div>
-        <div>Add routine</div>
+        <div onClick={props.onTopicChoose}>Add task</div>
+        <div onClick={props.onTopicChoose}>Add list</div>
+        <div onClick={props.onTopicChoose}>Add routine</div>
       </div>
     </div>
   );

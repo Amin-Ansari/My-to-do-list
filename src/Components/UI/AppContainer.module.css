@@ -1,6 +1,18 @@
 .app-container-style {
   width: 100%;
   max-width: 700px;
-  height: 150px;
-  margin: 50px auto;
+  height: auto;
+  flex-shrink: 0;
+}
+.move-toSide-animation {
+  animation: moveToSide 2s ease 0s 1 normal backwards;
+}
+
+@keyframes moveToSide {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-2000px);
+  }
 }

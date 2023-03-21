@@ -18,16 +18,20 @@ import ToDoList from "./Components/Data/ToDoList";
 
 function App() {
   const [appMarginState, updateMarginState] = useState(false);
+  const [topicState, updateTopicState] = useState(false);
   const isVisibil = (givenStateValue) => {
     updateMarginState(givenStateValue);
     console.log(appMarginState);
   };
+  function topicIsChoosen(givenValue) {
+    updateTopicState(givenValue);
+  }
   return (
     <div
       className="App"
       style={{ margin: `${appMarginState ? "20px" : "0px"}` }}
     >
-      <AppContainer>
+      <AppContainer animationState={topicState}>
         <Header>
           <OptionList>
             <OffCanvas onOffCanvasVisibility={isVisibil}></OffCanvas>
@@ -35,7 +39,7 @@ function App() {
           <CatagoryForm>
             <SelectAndOption></SelectAndOption>
           </CatagoryForm>
-          <AddButton></AddButton>
+          <AddButton onTopicClick={topicIsChoosen}></AddButton>
         </Header>
         <TaskSection>
           <CurrentTaskTitle />
