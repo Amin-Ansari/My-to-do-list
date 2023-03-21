@@ -27,6 +27,9 @@
 .input-style:focus {
   outline: none;
 }
+.hover-cursor:hover {
+  cursor: pointer;
+}
 @media all and (min-width: 576px) {
   .input-wrapper {
     width: 50%;

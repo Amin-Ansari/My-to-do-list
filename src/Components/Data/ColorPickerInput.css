@@ -1,0 +1,60 @@
+.color-picker-wrapper {
+  width: 100%;
+}
+.colors {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0.5rem 0rem;
+  justify-content: space-between;
+}
+.color-picker-wrapper label {
+  width: 2.2rem;
+  height: 2.1rem;
+  border-radius: 3px;
+  position: relative;
+}
+.color-picker-wrapper label:hover {
+  cursor: pointer;
+}
+.colors input {
+  opacity: 0;
+}
+.color-picker-wrapper label:nth-child(1) {
+  background-color: #ceedc7;
+}
+.color-picker-wrapper label:nth-child(2) {
+  background-color: #ff9494;
+}
+.color-picker-wrapper label:nth-child(3) {
+  background-color: #ffd4b2;
+}
+.color-picker-wrapper label:nth-child(4) {
+  background-color: #fff6bd;
+}
+.color-picker-wrapper label:nth-child(5) {
+  background-color: #d7e3fc;
+}
+.color-picker-wrapper label:nth-child(6) {
+  background-color: #ffc8dd;
+}
+.colors input:checked + .select-outline {
+  outline: 2px solid #49444c;
+}
+.select-outline {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 8px;
+  outline: 2px solid transparent;
+  transition: all 0.4s;
+}
+
+@media all and (min-width: 576px) {
+  .color-picker-wrapper {
+    width: 50%;
+    padding: 0.5rem 0.6rem;
+  }
+}

@@ -8,6 +8,7 @@ import ImportancyLevel from "./ImportancyLevel";
 import EndTime from "./EndTime";
 import StartTime from "./StartTime";
 import TaskAddingButton from "./TaskAddingButton";
+import ColorPickerInput from "./ColorPickerInput";
 
 const FormContainer = () => {
   return (
@@ -22,6 +23,7 @@ const FormContainer = () => {
           </label>
         </div>
         <ImportancyLevel></ImportancyLevel>
+        <ColorPickerInput></ColorPickerInput>
         <StartTime></StartTime>
         <EndTime></EndTime>
         <TaskAddingButton></TaskAddingButton>
