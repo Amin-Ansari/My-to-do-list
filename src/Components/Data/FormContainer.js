@@ -7,6 +7,7 @@ import DateInput from "./DateInput";
 import ImportancyLevel from "./ImportancyLevel";
 import EndTime from "./EndTime";
 import StartTime from "./StartTime";
+import TaskAddingButton from "./TaskAddingButton";
 
 const FormContainer = () => {
   return (
@@ -23,6 +24,7 @@ const FormContainer = () => {
         <ImportancyLevel></ImportancyLevel>
         <StartTime></StartTime>
         <EndTime></EndTime>
+        <TaskAddingButton></TaskAddingButton>
       </Form>
     </div>
   );
