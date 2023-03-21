@@ -8,9 +8,15 @@ export default function ListLayout() {
         <h4>Today</h4>
       </div>
       <ul>
-        <ListItem></ListItem>
-        <ListItem></ListItem>
-        <ListItem></ListItem>
+        <ListItem bgColor="FF9494"></ListItem>
+        <ListItem bgColor="FF9494"></ListItem>
+        <ListItem bgColor="D7E3FC"></ListItem>
+        <ListItem bgColor="D7E3FC"></ListItem>
+        <ListItem bgColor="D7E3FC"></ListItem>
+        <ListItem bgColor="D7E3FC"></ListItem>
+        <ListItem bgColor="D7E3FC"></ListItem>
+        <ListItem bgColor="CEEDC7"></ListItem>
+        <ListItem bgColor="CEEDC7"></ListItem>
       </ul>
     </div>
   );

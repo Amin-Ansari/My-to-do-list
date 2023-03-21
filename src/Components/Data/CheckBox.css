@@ -1,0 +1,54 @@
+#task-title,
+#task-time {
+  display: flex;
+  align-items: center;
+  font-size: 1.04rem;
+  font-weight: 500;
+}
+.theCheckBoxContainer {
+  margin: 0px 25px 0px 0px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.containging-label {
+  display: flex;
+  border-width: 3.5px;
+  border-style: solid;
+  width: 40px;
+  height: 100%;
+  justify-content: center;
+  border-radius: 100%;
+  position: relative;
+}
+
+.checked-state-style::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 100%;
+}
+.checked-state-style::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  width: 10px;
+  height: 60%;
+  transform: translate(-50%) rotate(40deg);
+  border-left: transparent;
+  border-top: transparent;
+  border-bottom: 3px solid white;
+  border-right: 3px solid white;
+}
+.unchecked-state-style::before {
+  content: "";
+}
+.unchecked-state-style::after {
+  content: "";
+}
+.containging-label > input {
+  opacity: 0;
+}

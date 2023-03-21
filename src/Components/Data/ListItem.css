@@ -1,21 +1,15 @@
+.list-item-style {
+  margin: 15px 0px;
+}
 .item-container {
   display: flex;
   flex-flow: row nowrap;
 }
 .item-desc {
   display: flex;
-  background: #ff9494;
   padding: 0.6rem 0.5rem;
   width: 100%;
   justify-content: space-between;
-  margin: 5px 0px;
   border-radius: 0.4rem;
   color: #49444c;
-}
-#task-title,
-#task-time {
-  display: flex;
-  align-items: center;
-  font-size: 1.04rem;
-  font-weight: 500;
 }
