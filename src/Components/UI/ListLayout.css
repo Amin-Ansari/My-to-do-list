@@ -4,3 +4,15 @@
   font-weight: normal;
   margin: 10px 0px;
 }
+.list-style {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding-bottom: 15px;
+}
+@media all and (min-width: 768px) {
+  .list-style {
+    grid-template-columns: 1fr 1fr;
+  }
+}

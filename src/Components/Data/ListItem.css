@@ -1,13 +1,14 @@
 .list-item-style {
-  margin: 15px 0px;
+  width: 100%;
 }
 .item-container {
   display: flex;
   flex-flow: row nowrap;
+  align-items: center;
 }
 .item-desc {
   display: flex;
-  padding: 0.6rem 0.5rem;
+  padding: 0.7rem 0.5rem;
   width: 100%;
   justify-content: space-between;
   border-radius: 0.4rem;

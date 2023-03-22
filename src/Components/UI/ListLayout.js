@@ -7,7 +7,7 @@ export default function ListLayout() {
       <div className="list-title">
         <h4>Today</h4>
       </div>
-      <ul>
+      <ul className="list-style">
         <ListItem bgColor="FF9494"></ListItem>
         <ListItem bgColor="FF9494"></ListItem>
         <ListItem bgColor="D7E3FC"></ListItem>
