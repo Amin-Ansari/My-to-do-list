@@ -1,0 +1,16 @@
+.select-button {
+  background-color: #9c89b8;
+  color: #fff;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  width: 100%;
+  border: none;
+  font-size: 1.15rem;
+  align-self: flex-start;
+}
+
+@media all and (min-width: 576px) {
+  .select-button {
+    width: 15rem;
+  }
+}

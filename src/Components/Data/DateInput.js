@@ -3,7 +3,7 @@ import "./AddButton.css";
 import Backdrop from "./Backdrop";
 import ReactDOM from "react-dom";
 import { useState } from "react";
-
+import SelectButton from "./SelectButton";
 const DatePicker = (props) => {
   return (
     <Backdrop className={`backdrop-shadow ${true ? "appear" : "hide"}`}>
@@ -16,6 +16,7 @@ const DatePicker = (props) => {
           <button>Previous month</button>
           <button>Next month</button>
         </div>
+        <SelectButton></SelectButton>
       </div>
     </Backdrop>
   );
