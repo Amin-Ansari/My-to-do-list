@@ -3,6 +3,7 @@ import ReactDom from "react-dom";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import Backdrop from "./Backdrop";
 
 const AddButton = (props) => {
   const [isTopicAppear, updateAppear] = useState(false);
@@ -41,7 +42,7 @@ const AddingTopic = (props) => {
     props.onHiding(false);
   };
   return (
-    <div
+    <Backdrop
       className={`backdrop-shadow ${props.appearOrNot ? "appear" : "hide"}`}
       onClick={hideAddingTopic}
     >
@@ -54,7 +55,7 @@ const AddingTopic = (props) => {
         <div onClick={props.onTopicChoose}>Add list</div>
         <div onClick={props.onTopicChoose}>Add routine</div>
       </div>
-    </div>
+    </Backdrop>
   );
 };
 export default AddButton;

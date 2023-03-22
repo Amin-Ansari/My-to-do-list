@@ -1,7 +1,6 @@
 import classes from "./AppContainer.module.css";
 
 const AppContainer = (props) => {
-  console.log(props.animationState);
   return (
     <div
       className={`${classes["app-container-style"]} ${

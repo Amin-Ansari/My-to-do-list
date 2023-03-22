@@ -17,7 +17,9 @@ const EndTime = () => {
         End time
         <select className="select-item">
           {timeList.map((item, index) => (
-            <option value={index}>{item}</option>
+            <option value={index} key={index}>
+              {item}
+            </option>
           ))}
         </select>
       </label>

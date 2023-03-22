@@ -30,9 +30,41 @@
 .hover-cursor:hover {
   cursor: pointer;
 }
+.month-control-wrapper {
+  width: 100% !important;
+  display: flex;
+  justify-content: space-between;
+  border: none !important;
+}
+.date-picker-padding {
+  padding: 0.3rem 2.5rem !important;
+}
+.month-control-wrapper > button {
+  border: none;
+  background-color: transparent;
+  padding: 0.46rem 0.8rem;
+  border: 1.8px solid #9c89b8;
+  border-radius: 8px;
+  font-weight: lighter;
+  font-size: 0.97rem;
+  transition: all 0.2s;
+}
+.month-control-wrapper:hover {
+  cursor: initial !important;
+  background-color: initial !important;
+  color: initial !important;
+}
+.month-control-wrapper > button:hover {
+  cursor: pointer;
+  background-color: #9c89b8;
+  color: #fff;
+}
 @media all and (min-width: 576px) {
   .input-wrapper {
     width: 50%;
     padding: 0.5rem 0.6rem;
+  }
+  .date-picker-padding {
+    padding: 1rem 3rem !important;
   }
 }
