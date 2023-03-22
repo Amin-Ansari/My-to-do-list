@@ -16,8 +16,9 @@
   border-radius: 10px;
   padding: 7px 10px;
   align-items: center;
+  font-size: 0.98rem !important;
 }
-@media all and (min-width: 576px) {
+@media all and (min-width: 768px) {
   .switch-button {
     display: flex;
   }

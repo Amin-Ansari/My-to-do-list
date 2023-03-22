@@ -16,7 +16,6 @@
   padding: 0px 20px;
 }
 .category-form > select {
-  font-size: 1.2rem;
   padding: 8px 10px;
   width: 100%;
   max-width: 350px;
@@ -24,6 +23,7 @@
   background: transparent;
   border: 1.8px solid #9c89b8;
   border-radius: 6px;
+  font-size: 0.95rem !important;
 }
 option {
   background-color: transparent;

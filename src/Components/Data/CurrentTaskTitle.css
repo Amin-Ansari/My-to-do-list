@@ -1,5 +1,5 @@
 .current-task-title {
-  font-size: calc(20px + 0.8vw);
-  font-weight: 500;
+  font-size: calc(1.1rem + 0.6vw);
+  font-weight: 600;
   margin-top: calc(0.4rem + 0.5vw);
 }

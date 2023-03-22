@@ -40,7 +40,7 @@
   animation: menueSlide 0.8s 1 0s ease normal forwards;
   padding: 40px 10px;
 }
-@media all and (min-width: 576px) {
+@media all and (min-width: 768px) {
   .off-canvas-button {
     display: none;
   }
@@ -62,9 +62,12 @@
   padding: 8px 10px;
   align-items: center;
   margin-top: 70px;
+  transition: all 0.3s;
 }
 .switch:hover {
   cursor: pointer;
+  background: #9c89b8;
+  color: #fff;
 }
 @keyframes opacity-animation {
   0% {

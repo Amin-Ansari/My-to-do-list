@@ -1,15 +1,15 @@
 .timer-container {
-  border: 2px solid #ffc8dd;
+  border: 3px solid #ffc8dd;
   width: 100%;
   max-width: 580px;
   margin: 25px auto;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   flex-flow: column nowrap;
   padding: 10px 20px;
 }
 
-@media all and (min-width: 576px) {
+@media all and (min-width: 568px) {
   .timer-container {
     max-width: 480px;
   }
