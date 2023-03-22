@@ -5,14 +5,14 @@
   flex-shrink: 0;
   position: fixed;
   top: -50px;
-  left: 1000px;
+  left: 100vw;
   display: flex;
   justify-content: center;
   background-color: #fff;
   z-index: 2;
 }
 .show-animation {
-  animation: showAnimations 0.8s ease-out 0s 1 normal forwards;
+  animation: showAnimations 1.2s ease 0.2s 1 normal forwards;
 }
 .form-style {
   width: 100%;
@@ -25,11 +25,5 @@
 @keyframes showAnimations {
   to {
     left: 0px;
-  }
-}
-
-@media all and (min-width: 576px) {
-  .add-section {
-    left: 1700px;
   }
 }
