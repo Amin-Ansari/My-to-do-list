@@ -46,7 +46,8 @@
   border: 1.8px solid #9c89b8;
   border-radius: 8px;
   font-weight: lighter;
-  font-size: 0.97rem;
+  font-size: calc(0.7rem + 0.2vw);
+
   transition: all 0.2s;
 }
 .month-control-wrapper:hover {
@@ -72,6 +73,11 @@
     padding: 0.5rem 0.6rem;
   }
   .date-picker-padding {
-    padding: 1rem 3rem !important;
+    padding: 1rem 8rem !important;
+  }
+}
+@media all and (min-width: 768px) {
+  .date-picker-padding {
+    padding: 1rem 13rem !important;
   }
 }

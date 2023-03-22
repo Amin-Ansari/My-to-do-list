@@ -1,0 +1,21 @@
+.day-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  border: 1.8px solid #9c89b8;
+  border-radius: 0.7rem;
+  padding: 0.3rem 0.2rem;
+}
+.day-name {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.day-name h4 {
+  width: 14.28%;
+  font-size: calc(0.75rem + 0.2vw);
+  font-weight: 600;
+}
+.day-container:hover {
+  background-color: initial !important;
+  color: initial !important;
+}

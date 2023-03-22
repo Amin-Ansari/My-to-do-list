@@ -5,12 +5,14 @@
   border-radius: 8px;
   width: 100%;
   border: none;
-  font-size: 1.15rem;
+  font-size: calc(0.9rem + 0.25vw);
   align-self: flex-start;
 }
-
+.select-button:hover {
+  cursor: pointer;
+}
 @media all and (min-width: 576px) {
   .select-button {
-    width: 15rem;
+    width: 10rem;
   }
 }

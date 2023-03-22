@@ -4,6 +4,7 @@ import Backdrop from "./Backdrop";
 import ReactDOM from "react-dom";
 import { useState } from "react";
 import SelectButton from "./SelectButton";
+import DayPicker from "./DayPicker";
 const DatePicker = (props) => {
   function closeBackDrop() {
     props.onClosingDPicker(false);
@@ -26,6 +27,7 @@ const DatePicker = (props) => {
             <button onClick={monthChange}>Previous month</button>
             <button onClick={monthChange}>Next month</button>
           </div>
+          <DayPicker></DayPicker>
           <SelectButton></SelectButton>
         </div>
       </Backdrop>
