@@ -16,3 +16,7 @@ body {
   background-color: #fff;
   padding: 0px 30px;
 }
+#where-date-picker-goes-to {
+  position: relative;
+  z-index: 2;
+}
