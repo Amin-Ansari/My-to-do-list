@@ -24,13 +24,13 @@ const ListItem = (props) => {
             id="task-title"
             className={`${taskDoneState ? "line-throw" : ""}`}
           >
-            Something
+            {props.taskTitle}
           </h6>
           <span
             id="task-time"
             className={`${taskDoneState ? "line-throw" : ""}`}
           >
-            08:20
+            {props.taskTime}
           </span>
         </div>
       </div>

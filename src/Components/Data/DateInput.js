@@ -6,11 +6,28 @@ import { useState } from "react";
 import SelectButton from "./SelectButton";
 import DayPicker from "./DayPicker";
 const DatePicker = (props) => {
+  const [currentDate, updateCurrentDate] = useState(
+    new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0)
+  );
+  let dayNumber = Number(currentDate.toLocaleString("en", { day: "numeric" }));
+  const myDays = [];
+  for (let i = 1; i <= dayNumber; i++) {
+    myDays.push(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, i)
+    );
+  }
   function closeBackDrop() {
     props.onClosingDPicker(false);
   }
-  const monthChange = () => {
-    props.onClosingDPicker(true);
+  const prevMonth = () => {
+    updateCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth(), 0)
+    );
+  };
+  const nxtMonth = () => {
+    updateCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() + 2, 0)
+    );
   };
   return (
     <>
@@ -24,8 +41,8 @@ const DatePicker = (props) => {
           }`}
         >
           <div className="month-control-wrapper">
-            <button onClick={monthChange}>Previous month</button>
-            <button onClick={monthChange}>Next month</button>
+            <button onClick={prevMonth}>Previous month</button>
+            <button onClick={nxtMonth}>Next month</button>
           </div>
           <DayPicker></DayPicker>
           <SelectButton></SelectButton>
