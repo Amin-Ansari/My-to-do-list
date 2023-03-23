@@ -44,7 +44,7 @@ const DatePicker = (props) => {
             <button onClick={nxtMonth}>Next month</button>
           </div>
           <DayPicker daysList={myDays}></DayPicker>
-          <SelectButton></SelectButton>
+          <SelectButton closeCalender={closeBackDrop}></SelectButton>
         </div>
       </Backdrop>
     </>
