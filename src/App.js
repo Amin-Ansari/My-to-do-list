@@ -30,7 +30,7 @@ function App() {
   return (
     <div
       className="App"
-      style={{ margin: `${appMarginState ? "20px" : "0px"}` }}
+      style={{ transform: `scaleX(${appMarginState ? "0.96" : "1"}` }}
     >
       <AppContainer animationState={topicState}>
         <Header>

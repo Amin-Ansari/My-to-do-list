@@ -3,6 +3,8 @@
   max-width: 700px;
   height: auto;
   flex-shrink: 0;
+  background-color: #fff;
+  padding: 0px 0.7rem;
 }
 .move-toSide-animation {
   animation: moveToSide 1.8s ease 0s 1 normal backwards;
@@ -14,5 +16,10 @@
   }
   to {
     transform: translateX(-2000px);
+  }
+}
+@media all and (min-width: 768px) {
+  .app-container-style {
+    margin: 2rem 0px;
   }
 }

@@ -14,7 +14,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   background-color: #fff;
-  padding: 0px 30px;
+  background-color: #f1f1f1;
 }
 #where-date-picker-goes-to {
   position: relative;
