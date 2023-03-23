@@ -1,6 +1,9 @@
 .list-item-style {
   width: 100%;
 }
+.list-item-style:hover {
+  cursor: pointer;
+}
 .item-container {
   display: flex;
   flex-flow: row nowrap;
@@ -13,4 +16,7 @@
   justify-content: space-between;
   border-radius: 0.4rem;
   color: #49444c;
+}
+.line-throw {
+  text-decoration: line-through !important;
 }

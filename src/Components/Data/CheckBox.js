@@ -4,10 +4,6 @@ import { useState } from "react";
 
 export default function CheckBox(props) {
   const [checkState, updateCheckState] = useState(false);
-  const inputRef = useRef();
-  const checkAndUncheck = () => {
-    updateCheckState(inputRef.current.checked);
-  };
   return (
     <label
       className={`containging-label ${
@@ -17,9 +13,8 @@ export default function CheckBox(props) {
         borderColor: `#${props.borderColor}`,
         backgroundColor: `#${checkState ? props.borderColor : "fff"}`,
       }}
-      onClick={checkAndUncheck}
     >
-      <input type="checkbox" ref={inputRef}></input>
+      <input type="checkbox" r></input>
     </label>
   );
 }
