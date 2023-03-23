@@ -1,6 +1,19 @@
 import "./DayPicker.css";
 
-export default function DayPicker() {
+export default function DayPicker(props) {
+  const monList = [];
+  const tuesList = [];
+  const wedList = [];
+  const thuList = [];
+  const friList = [];
+  const satList = [];
+  const sunList = [];
+
+  const allDays = props.daysList;
+  for (let i = 1; i <= allDays.length; i++) {
+    const d = new Date();
+    console.log(allDays[i].toLocaleString("en", { weekday: "long" }));
+  }
   return (
     <div className="day-container">
       <div className="day-name">
