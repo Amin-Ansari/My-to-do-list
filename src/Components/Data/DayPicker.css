@@ -3,12 +3,17 @@
   max-width: 100% !important;
   border: 1.8px solid #9c89b8;
   border-radius: 0.7rem;
-  padding: 0.3rem 0.2rem;
+  padding: 0.3rem 8rem;
 }
 .day-name {
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
+}
+.day-name form {
+  padding: 0px 0px;
+  display: flex;
+  width: 100%;
 }
 .day-name ul {
   width: 14.28%;
@@ -18,4 +23,18 @@
 .day-container:hover {
   background-color: initial !important;
   color: initial !important;
+}
+.calender-day {
+  margin: 0.5rem auto;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media all and (min-width: 768px) {
+  .day-name form {
+    padding: 5px 20px;
+  }
 }

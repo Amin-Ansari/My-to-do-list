@@ -2,7 +2,7 @@ import "./InputStyles.css";
 import "./AddButton.css";
 import Backdrop from "./Backdrop";
 import ReactDOM from "react-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SelectButton from "./SelectButton";
 import DayPicker from "./DayPicker";
 const DatePicker = (props) => {
@@ -12,13 +12,9 @@ const DatePicker = (props) => {
   let dayNumber = Number(currentDate.toLocaleString("en", { day: "numeric" }));
   const myDays = [];
   // The for loop below will add all days of a month to the myDays array
-  useEffect(() => {
-    for (let i = 1; i <= dayNumber; i++) {
-      myDays.push(
-        new Date(currentDate.getFullYear(), currentDate.getMonth(), i)
-      );
-    }
-  }, [currentDate]);
+  for (let i = 1; i <= dayNumber; i++) {
+    myDays.push(new Date(currentDate.getFullYear(), currentDate.getMonth(), i));
+  }
   function closeBackDrop() {
     props.onClosingDPicker(false);
   }
