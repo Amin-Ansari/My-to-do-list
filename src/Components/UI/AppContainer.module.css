@@ -4,7 +4,8 @@
   height: auto;
   flex-shrink: 0;
   background-color: #fff;
-  padding: 0px 0.7rem;
+  border-radius: 5px;
+  transition: all 0.7s;
 }
 .move-toSide-animation {
   animation: moveToSide 1.8s ease 0s 1 normal backwards;

@@ -27,12 +27,10 @@ function App() {
   function topicIsChoosen(givenValue) {
     updateTopicState(givenValue);
   }
+
   return (
-    <div
-      className="App"
-      style={{ transform: `scaleX(${appMarginState ? "0.96" : "1"}` }}
-    >
-      <AppContainer animationState={topicState}>
+    <div className="App">
+      <AppContainer animationState={topicState} onClose={appMarginState}>
         <Header>
           <OptionList>
             <OffCanvas onOffCanvasVisibility={isVisibil}></OffCanvas>
