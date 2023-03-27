@@ -1,6 +1,7 @@
 .input-wrapper {
   width: 100%;
   padding: 0.5rem 0rem;
+  margin: 3px 0px;
 }
 .label-style {
   display: flex;
@@ -8,6 +9,7 @@
   height: auto;
   flex-flow: column;
   flex-shrink: 0;
+  position: relative;
 }
 .input-style,
 .label-style > select {
@@ -23,6 +25,7 @@
   text-align: left;
   background: transparent;
   border: 1.8px solid #9c89b8;
+  transition: all 0.3s;
 }
 .input-style:focus {
   outline: none;
@@ -66,6 +69,17 @@
   position: absolute;
   top: 0px;
   left: 0px;
+}
+.validName {
+  background-color: #dd535e;
+  border: 1.8px solid #dd535e;
+}
+.invalidMessage {
+  color: #dd535e;
+  overflow: hidden;
+  position: absolute;
+  top: 61px;
+  transition: all 0.3s;
 }
 @media all and (min-width: 576px) {
   .input-wrapper {
