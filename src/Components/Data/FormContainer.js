@@ -11,6 +11,14 @@ import TaskAddingButton from "./TaskAddingButton";
 import ColorPickerInput from "./ColorPickerInput";
 import { useReducer, useState } from "react";
 
+const reduceFunction = (state, action) => {
+  return {
+    value: action.val.length <= 90 ? action.val : state.value,
+    isLenghLong: action.val.length > 90,
+    isNameEmpty: !action.val && action.type == "BLUR" ? true : false,
+  };
+};
+
 const FormContainer = () => {
   const todayDate = new Date();
   let day, month, year;
@@ -23,33 +31,13 @@ const FormContainer = () => {
       ? `${todayDate.getMonth() + 1}`
       : `0${todayDate.getMonth() + 1}`;
   year = todayDate.getFullYear();
-  const [taskReducer, dispatchTask] = useReducer(() => {}, {
-    taskName: "",
-    taskDate: `${month}/${day}/${year}`,
-    taskCategory: "",
-    taskImportancy: "",
-    TaskColor: "",
-    taskStartTime: "",
-    taskEndTime: "",
+
+  const [nameReducer, dispatchReducer] = useReducer(reduceFunction, {
+    value: "",
+    isLenghLong: false,
+    isNameEmpty: false,
   });
-  // The funcion below is responsible for updating localStorage
-  const updateLocalStorage = () => {
-    let taskLocaled = JSON.parse(
-      localStorage.getItem(`${taskReducer.taskDate}`)
-    );
-    if (!taskLocaled) {
-      localStorage.setItem(
-        `${taskReducer.taskDate}`,
-        JSON.stringify([taskReducer])
-      );
-    } else {
-      taskLocaled.push(JSON.stringify(taskReducer));
-      localStorage.setItem(
-        `${taskReducer.taskDate}`,
-        JSON.stringify(taskLocaled)
-      );
-    }
-  };
+
   const [timeReducer, dispatchTimer] = useReducer(
     (state, action) => {
       if (action.unit == "START") {
@@ -72,17 +60,74 @@ const FormContainer = () => {
       isTimeValid: true,
     }
   );
+  const [colorState, udpateColorState] = useState("");
+
+  const taskDetails = {
+    taskName: nameReducer.value,
+    taskDate: `${month}/${day}/${year}`,
+    taskCategory: "0",
+    taskImportancy: "0",
+    TaskColor: colorState,
+    taskStartTime: timeReducer.startTime,
+    taskEndTime: timeReducer.endTime,
+    infoValidation: function () {
+      return {
+        isTimeValid: timeReducer.isTimeValid,
+        isNameValid: this.taskName != "",
+        isTaskColor: this.TaskColor != "",
+      };
+    },
+  };
+
+  // The funcion below is responsible for updating localStorage
+  const updateLocalStorage = () => {
+    let taskLocaled = JSON.parse(
+      localStorage.getItem(`${taskDetails.taskDate}`)
+    );
+    if (!taskLocaled) {
+      localStorage.setItem(
+        `${taskDetails.taskDate}`,
+        JSON.stringify([taskDetails])
+      );
+    } else {
+      taskLocaled.push(JSON.stringify(taskDetails));
+      localStorage.setItem(
+        `${taskDetails.taskDate}`,
+        JSON.stringify(taskLocaled)
+      );
+    }
+  };
+
   const takeTheTime = (theTime, timeUnit) => {
     dispatchTimer({ unit: timeUnit, time: theTime });
   };
   const formSubmission = (event) => {
     event.preventDefault();
-    updateLocalStorage();
+    if (
+      taskDetails.infoValidation().isNameValid &&
+      taskDetails.infoValidation().isTaskColor &&
+      taskDetails.infoValidation().isTimeValid
+    ) {
+      updateLocalStorage();
+    } else {
+      alert("The name, color and time fields are important, fill them out");
+    }
+  };
+  const nameInputvalidity = (inputValue) => {
+    dispatchReducer(inputValue);
+  };
+  const pickTheColor = (color) => {
+    udpateColorState(color);
   };
   return (
     <div className="form-container">
       <form className="form-style" onSubmit={formSubmission}>
-        <NameInput></NameInput>
+        <NameInput
+          onEvent={nameInputvalidity}
+          value={nameReducer.value}
+          inputLength={nameReducer.isLenghLong}
+          inputEmpty={nameReducer.isNameEmpty}
+        ></NameInput>
         <DateInput></DateInput>
         <div className="input-wrapper">
           <label className="label-style">
@@ -93,7 +138,7 @@ const FormContainer = () => {
           </label>
         </div>
         <ImportancyLevel></ImportancyLevel>
-        <ColorPickerInput></ColorPickerInput>
+        <ColorPickerInput onPickingColor={pickTheColor}></ColorPickerInput>
         <StartTime
           onTakingTheTime={takeTheTime}
           isValid={timeReducer.isTimeValid}
