@@ -23,8 +23,7 @@ const FormContainer = () => {
       ? `${todayDate.getMonth() + 1}`
       : `0${todayDate.getMonth() + 1}`;
   year = todayDate.getFullYear();
-
-  const [taksREducer, dispatchTask] = useReducer(() => {}, {
+  const [taskReducer, dispatchTask] = useReducer(() => {}, {
     taskName: "",
     taskDate: `${month}/${day}/${year}`,
     taskCategory: "",
@@ -33,6 +32,24 @@ const FormContainer = () => {
     taskStartTime: "",
     taskEndTime: "",
   });
+  // The funcion below is responsible for updating localStorage
+  const updateLocalStorage = () => {
+    let taskLocaled = JSON.parse(
+      localStorage.getItem(`${taskReducer.taskDate}`)
+    );
+    if (!taskLocaled) {
+      localStorage.setItem(
+        `${taskReducer.taskDate}`,
+        JSON.stringify([taskReducer])
+      );
+    } else {
+      taskLocaled.push(JSON.stringify(taskReducer));
+      localStorage.setItem(
+        `${taskReducer.taskDate}`,
+        JSON.stringify(taskLocaled)
+      );
+    }
+  };
   const [timeReducer, dispatchTimer] = useReducer(
     (state, action) => {
       if (action.unit == "START") {
@@ -60,9 +77,7 @@ const FormContainer = () => {
   };
   const formSubmission = (event) => {
     event.preventDefault();
-  };
-  const dd = () => {
-    alert("dd");
+    updateLocalStorage();
   };
   return (
     <div className="form-container">
@@ -78,7 +93,7 @@ const FormContainer = () => {
           </label>
         </div>
         <ImportancyLevel></ImportancyLevel>
-        <ColorPickerInput onTest={dd}></ColorPickerInput>
+        <ColorPickerInput></ColorPickerInput>
         <StartTime
           onTakingTheTime={takeTheTime}
           isValid={timeReducer.isTimeValid}

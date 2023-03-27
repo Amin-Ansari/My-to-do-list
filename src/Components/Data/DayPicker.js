@@ -30,7 +30,7 @@ export default function DayPicker(props) {
           {weekday[0].map((item, index) => {
             if (item == "empty") {
               return (
-                <li className="empty-li calender-day" key={index}>
+                <li className="calender-day empty-li" key={index}>
                   0
                 </li>
               );
@@ -55,7 +55,7 @@ export default function DayPicker(props) {
           {weekday[1].map((item, index) => {
             if (item == "empty") {
               return (
-                <li className="empty-li calender-day" key={index}>
+                <li className="calender-day empty-li" key={index}>
                   0
                 </li>
               );
@@ -80,7 +80,7 @@ export default function DayPicker(props) {
           {weekday[2].map((item, index) => {
             if (item == "empty") {
               return (
-                <li className="empty-li calender-day" key={index}>
+                <li className="calender-day empty-li" key={index}>
                   0
                 </li>
               );
@@ -105,7 +105,7 @@ export default function DayPicker(props) {
           {weekday[3].map((item, index) => {
             if (item == "empty") {
               return (
-                <li className="empty-li calender-day" key={index}>
+                <li className="calender-day empty-li" key={index}>
                   0
                 </li>
               );
@@ -130,7 +130,7 @@ export default function DayPicker(props) {
           {weekday[4].map((item, index) => {
             if (item == "empty") {
               return (
-                <li className="empty-li calender-day" key={index}>
+                <li className="calender-day empty-li" key={index}>
                   0
                 </li>
               );
@@ -155,7 +155,7 @@ export default function DayPicker(props) {
           {weekday[5].map((item, index) => {
             if (item == "empty") {
               return (
-                <li className="empty-li calender-day" key={index}>
+                <li className="calender-day empty-li" key={index}>
                   0
                 </li>
               );
@@ -180,7 +180,7 @@ export default function DayPicker(props) {
           {weekday[6].map((item, index) => {
             if (item == "empty") {
               return (
-                <li className="empty-li calender-day" key={index}>
+                <li className="calender-day empty-li" key={index}>
                   0
                 </li>
               );

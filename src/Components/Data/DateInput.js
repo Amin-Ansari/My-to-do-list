@@ -9,6 +9,7 @@ const DatePicker = (props) => {
   const [currentDate, updateCurrentDate] = useState(
     new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0)
   );
+
   let dayNumber = Number(currentDate.toLocaleString("en", { day: "numeric" }));
   const myDays = [];
   // The for loop below will add all days of a month to the myDays array
