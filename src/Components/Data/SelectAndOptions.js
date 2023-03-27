@@ -1,11 +1,12 @@
 import "./SelectAndOptions.css";
-const SelectAndOption = () => {
+const SelectAndOption = (props) => {
   return (
     <select className="select-item">
-      <option value={0}>All</option>
-      <option value={1}>Work</option>
-      <option value={2}>Study</option>
-      <option value={3}>Cleaning up</option>
+      {props.categoryList.map((item, index) => (
+        <option key={index} value={index}>
+          {item}
+        </option>
+      ))}
     </select>
   );
 };

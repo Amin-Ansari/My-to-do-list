@@ -13,7 +13,6 @@ const NameInput = (props) => {
     value: "",
     isLenghLong: false,
     isNameEmpty: false,
-    error: "",
   });
   const checkLength = (event) => {
     dispatchReducer({ type: "FOCUS", val: event.target.value });
@@ -37,7 +36,9 @@ const NameInput = (props) => {
         Name
         <input
           type="text"
-          className={`input-style ${error ? "validName" : ""}`}
+          className={`input-style ${error ? "validName" : ""} ${
+            !error && nameReducer.value ? "filling-style" : ""
+          }`}
           onChange={checkLength}
           onBlur={checkIfEmpty}
           value={nameReducer.value}

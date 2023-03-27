@@ -36,7 +36,9 @@ function App() {
             <OffCanvas onOffCanvasVisibility={isVisibil}></OffCanvas>
           </OptionList>
           <CatagoryForm>
-            <SelectAndOption></SelectAndOption>
+            <SelectAndOption
+              categoryList={["All", "Work", "Study", "Cleaning up"]}
+            ></SelectAndOption>
           </CatagoryForm>
           <AddButton onTopicClick={topicIsChoosen}></AddButton>
         </Header>
