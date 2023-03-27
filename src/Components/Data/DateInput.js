@@ -52,6 +52,18 @@ const DatePicker = (props) => {
 };
 
 const DateInput = (props) => {
+  const todayDate = new Date();
+  let day, month, year;
+  day =
+    todayDate.getDate() >= 10
+      ? `${todayDate.getDate()}`
+      : `0${todayDate.getDate()}`;
+  month =
+    todayDate.getMonth() + 1 >= 10
+      ? `${todayDate.getMonth() + 1}`
+      : `0${todayDate.getMonth() + 1}`;
+  year = todayDate.getFullYear();
+
   const [dateShowState, updateDateShowState] = useState(false);
   const changeTheState = (stateValue) => {
     updateDateShowState(stateValue);
@@ -68,7 +80,7 @@ const DateInput = (props) => {
             type="text"
             readOnly
             className="input-style hover-cursor"
-            value={"02/20/2023"}
+            value={`${month}/${day}/${year}`}
             onClick={showTheDatePicker}
           ></input>
         </label>

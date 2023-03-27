@@ -1,6 +1,5 @@
 import "./ColorPickerInput.css";
-
-const ColorPickerInput = () => {
+const ColorPickerInput = (props) => {
   return (
     <div className="color-picker-wrapper">
       Color

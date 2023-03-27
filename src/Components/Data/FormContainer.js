@@ -12,9 +12,21 @@ import ColorPickerInput from "./ColorPickerInput";
 import { useReducer, useState } from "react";
 
 const FormContainer = () => {
-  const [taskState, updateTask] = useState({
+  const todayDate = new Date();
+  let day, month, year;
+  day =
+    todayDate.getDate() >= 10
+      ? `${todayDate.getDate()}`
+      : `0${todayDate.getDate()}`;
+  month =
+    todayDate.getMonth() + 1 >= 10
+      ? `${todayDate.getMonth() + 1}`
+      : `0${todayDate.getMonth() + 1}`;
+  year = todayDate.getFullYear();
+
+  const [taksREducer, dispatchTask] = useReducer(() => {}, {
     taskName: "",
-    taskDate: "",
+    taskDate: `${month}/${day}/${year}`,
     taskCategory: "",
     taskImportancy: "",
     TaskColor: "",
@@ -46,10 +58,15 @@ const FormContainer = () => {
   const takeTheTime = (theTime, timeUnit) => {
     dispatchTimer({ unit: timeUnit, time: theTime });
   };
+  const formSubmission = (event) => {
+    event.preventDefault();
+  };
+  const dd = () => {
+    alert("dd");
+  };
   return (
     <div className="form-container">
-      {console.log(timeReducer.isTimeValid)}
-      <Form className="form-style">
+      <form className="form-style" onSubmit={formSubmission}>
         <NameInput></NameInput>
         <DateInput></DateInput>
         <div className="input-wrapper">
@@ -61,7 +78,7 @@ const FormContainer = () => {
           </label>
         </div>
         <ImportancyLevel></ImportancyLevel>
-        <ColorPickerInput></ColorPickerInput>
+        <ColorPickerInput onTest={dd}></ColorPickerInput>
         <StartTime
           onTakingTheTime={takeTheTime}
           isValid={timeReducer.isTimeValid}
@@ -71,7 +88,7 @@ const FormContainer = () => {
           isValid={timeReducer.isTimeValid}
         ></EndTime>
         <TaskAddingButton></TaskAddingButton>
-      </Form>
+      </form>
     </div>
   );
 };
