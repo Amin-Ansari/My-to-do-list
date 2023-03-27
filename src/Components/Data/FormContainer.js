@@ -52,6 +52,12 @@ const FormContainer = () => {
           endTime: action.time,
           isTimeValid: action.time === state.startTime ? false : true,
         };
+      } else {
+        return {
+          startTime: action.time,
+          endTime: action.time,
+          isTimeValid: true,
+        };
       }
     },
     {
@@ -96,6 +102,12 @@ const FormContainer = () => {
         JSON.stringify(taskLocaled)
       );
     }
+    dispatchTimer({ unit: "RESET", time: "00:00" });
+    dispatchReducer({ type: "FOCUS", val: "" });
+    const colors = document.querySelectorAll(".color-radio-btn");
+    colors.forEach((item) => {
+      item.checked = false;
+    });
   };
 
   const takeTheTime = (theTime, timeUnit) => {
