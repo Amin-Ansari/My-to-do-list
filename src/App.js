@@ -52,7 +52,10 @@ function App() {
         </TaskSection>
       </AppContainer>
       {ReactDOM.createPortal(
-        <AddSection showHideState={topicState} />,
+        <AddSection
+          showHideState={topicState}
+          onTakingTheVisibility={topicIsChoosen}
+        />,
         document.querySelector("#where-adding-form-goes-to")
       )}
     </div>

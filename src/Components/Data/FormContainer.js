@@ -19,7 +19,7 @@ const reduceFunction = (state, action) => {
   };
 };
 
-const FormContainer = () => {
+const FormContainer = (props) => {
   const todayDate = new Date();
   let day, month, year;
   day =
@@ -85,6 +85,9 @@ const FormContainer = () => {
     },
   };
 
+  const hideTheAddingSection = () => {
+    props.onLiftingUp(false);
+  };
   // The funcion below is responsible for updating localStorage
   const updateLocalStorage = () => {
     let taskLocaled = JSON.parse(
@@ -105,11 +108,8 @@ const FormContainer = () => {
     dispatchTimer({ unit: "RESET", time: "00:00" });
     dispatchReducer({ type: "FOCUS", val: "" });
     const colors = document.querySelectorAll(".color-radio-btn");
-    colors.forEach((item) => {
-      item.checked = false;
-    });
+    hideTheAddingSection();
   };
-
   const takeTheTime = (theTime, timeUnit) => {
     dispatchTimer({ unit: timeUnit, time: theTime });
   };
@@ -131,6 +131,7 @@ const FormContainer = () => {
   const pickTheColor = (color) => {
     udpateColorState(color);
   };
+
   return (
     <div className="form-container">
       <form className="form-style" onSubmit={formSubmission}>
