@@ -29,6 +29,17 @@ const ColorPickerInput = (props) => {
             </label>
           );
         })}
+        <label className="label-outline reset-color">
+          <input
+            type="radio"
+            value={0}
+            name="color-radio-btn"
+            id={`color-${colorList.length + 1}`}
+            onClick={passTheColor}
+            checked={props.isReseted ? true : false}
+          ></input>
+          <span className="select-outline"></span>
+        </label>
       </div>
     </div>
   );

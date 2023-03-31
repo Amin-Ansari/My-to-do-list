@@ -37,7 +37,7 @@ const FormContainer = (props) => {
     isLenghLong: false,
     isNameEmpty: false,
   });
-
+  const [colorResetState, updateColorReset] = useState(false);
   const [timeReducer, dispatchTimer] = useReducer(
     (state, action) => {
       if (action.unit == "START") {
@@ -45,18 +45,24 @@ const FormContainer = (props) => {
           startTime: action.time,
           endTime: state.endTime,
           isTimeValid: action.time === state.endTime ? false : true,
+          startVal: action.timeVal,
+          endVal: state.endVal,
         };
       } else if (action.unit == "END") {
         return {
           startTime: state.startTime,
           endTime: action.time,
           isTimeValid: action.time === state.startTime ? false : true,
+          startVal: state.startVal,
+          endVal: action.timeVal,
         };
       } else {
         return {
           startTime: action.time,
           endTime: action.time,
           isTimeValid: true,
+          startVal: 0,
+          endVal: 0,
         };
       }
     },
@@ -76,6 +82,8 @@ const FormContainer = (props) => {
     TaskColor: colorState,
     taskStartTime: timeReducer.startTime,
     taskEndTime: timeReducer.endTime,
+    taskStartVal: timeReducer.startVal,
+    taskEndVal: timeReducer.endVal,
     infoValidation: function () {
       return {
         isTimeValid: timeReducer.isTimeValid,
@@ -105,13 +113,14 @@ const FormContainer = (props) => {
         JSON.stringify(taskLocaled)
       );
     }
-    dispatchTimer({ unit: "RESET", time: "00:00" });
+    dispatchTimer({ unit: "RESET", time: "00:00", timeVal: 0 });
     dispatchReducer({ type: "FOCUS", val: "" });
-    const colors = document.querySelectorAll(".color-radio-btn");
     hideTheAddingSection();
+    updateColorReset(true);
+    setTimeout(() => updateColorReset(false), 100);
   };
-  const takeTheTime = (theTime, timeUnit) => {
-    dispatchTimer({ unit: timeUnit, time: theTime });
+  const takeTheTime = (theTime, timeUnit, timeVal) => {
+    dispatchTimer({ unit: timeUnit, time: theTime, timeVal });
   };
   const formSubmission = (event) => {
     event.preventDefault();
@@ -151,14 +160,19 @@ const FormContainer = (props) => {
           </label>
         </div>
         <ImportancyLevel></ImportancyLevel>
-        <ColorPickerInput onPickingColor={pickTheColor}></ColorPickerInput>
+        <ColorPickerInput
+          onPickingColor={pickTheColor}
+          isReseted={colorResetState}
+        ></ColorPickerInput>
         <StartTime
           onTakingTheTime={takeTheTime}
           isValid={timeReducer.isTimeValid}
+          value={taskDetails.taskStartVal}
         ></StartTime>
         <EndTime
           onTakingTheTime={takeTheTime}
           isValid={timeReducer.isTimeValid}
+          value={taskDetails.taskEndVal}
         ></EndTime>
         <TaskAddingButton></TaskAddingButton>
       </form>
