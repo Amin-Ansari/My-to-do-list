@@ -18,14 +18,9 @@ const StartTime = (props) => {
     <div className="input-wrapper">
       <label className="label-style">
         Start time
-        <select className="select-item">
+        <select className="select-item" value={props.value}>
           {timeList.map((item, index) => (
-            <option
-              value={index}
-              key={index}
-              onClick={liftUpTheTime}
-              selected={props.value == index ? true : false}
-            >
+            <option value={index} key={index} onClick={liftUpTheTime}>
               {item}
             </option>
           ))}

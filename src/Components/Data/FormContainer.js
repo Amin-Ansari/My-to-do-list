@@ -31,7 +31,8 @@ const FormContainer = (props) => {
       ? `${todayDate.getMonth() + 1}`
       : `0${todayDate.getMonth() + 1}`;
   year = todayDate.getFullYear();
-
+  const [importancyState, updateImportancy] = useState(0);
+  const [categoryState, updateCategory] = useState(0);
   const [dateState, updateDateState] = useState(`${month}/${day}/${year}`);
   const [nameReducer, dispatchReducer] = useReducer(reduceFunction, {
     value: "",
@@ -83,7 +84,7 @@ const FormContainer = (props) => {
     taskName: nameReducer.value,
     taskDate: dateState,
     taskCategory: "0",
-    taskImportancy: "0",
+    taskImportancy: importancyState,
     TaskColor: colorState,
     taskStartTime: timeReducer.startTime,
     taskEndTime: timeReducer.endTime,
@@ -118,10 +119,13 @@ const FormContainer = (props) => {
         JSON.stringify(taskLocaled)
       );
     }
+
     dispatchTimer({ unit: "RESET", time: "00:00", timeVal: 0 });
     dispatchReducer({ type: "FOCUS", val: "" });
     hideTheAddingSection();
     updateTheDate(`${month}/${day}/${year}`);
+    updateImportancy(0);
+    updateCategory(0);
     updateColorReset(true);
     setTimeout(() => updateColorReset(false), 100);
   };
@@ -146,7 +150,12 @@ const FormContainer = (props) => {
   const pickTheColor = (color) => {
     udpateColorState(color);
   };
-
+  const takeImportancy = (importancy) => {
+    updateImportancy(importancy);
+  };
+  const takeCategory = (category) => {
+    updateCategory(category);
+  };
   return (
     <div className="form-container">
       <form className="form-style" onSubmit={formSubmission}>
@@ -165,10 +174,15 @@ const FormContainer = (props) => {
             Category
             <SelectAndOption
               categoryList={["Work", "Study", "Cleaning up"]}
+              onTakingCategory={takeCategory}
+              value={categoryState}
             ></SelectAndOption>
           </label>
         </div>
-        <ImportancyLevel></ImportancyLevel>
+        <ImportancyLevel
+          value={importancyState}
+          onTakingImportancy={takeImportancy}
+        ></ImportancyLevel>
         <ColorPickerInput
           onPickingColor={pickTheColor}
           isReseted={colorResetState}
