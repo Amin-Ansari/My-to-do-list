@@ -32,6 +32,7 @@ const FormContainer = (props) => {
       : `0${todayDate.getMonth() + 1}`;
   year = todayDate.getFullYear();
 
+  const [dateState, updateDateState] = useState(`${month}/${day}/${year}`);
   const [nameReducer, dispatchReducer] = useReducer(reduceFunction, {
     value: "",
     isLenghLong: false,
@@ -74,9 +75,13 @@ const FormContainer = (props) => {
   );
   const [colorState, udpateColorState] = useState("");
 
+  const updateTheDate = (takenDate) => {
+    updateDateState(takenDate);
+  };
+
   const taskDetails = {
     taskName: nameReducer.value,
-    taskDate: `${month}/${day}/${year}`,
+    taskDate: dateState,
     taskCategory: "0",
     taskImportancy: "0",
     TaskColor: colorState,
@@ -116,6 +121,7 @@ const FormContainer = (props) => {
     dispatchTimer({ unit: "RESET", time: "00:00", timeVal: 0 });
     dispatchReducer({ type: "FOCUS", val: "" });
     hideTheAddingSection();
+    updateTheDate(`${month}/${day}/${year}`);
     updateColorReset(true);
     setTimeout(() => updateColorReset(false), 100);
   };
@@ -150,7 +156,10 @@ const FormContainer = (props) => {
           inputLength={nameReducer.isLenghLong}
           inputEmpty={nameReducer.isNameEmpty}
         ></NameInput>
-        <DateInput></DateInput>
+        <DateInput
+          value={taskDetails.taskDate}
+          onUpdatingTheDate={updateTheDate}
+        ></DateInput>
         <div className="input-wrapper">
           <label className="label-style">
             Category

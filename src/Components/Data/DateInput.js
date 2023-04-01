@@ -2,14 +2,13 @@ import "./InputStyles.css";
 import "./AddButton.css";
 import Backdrop from "./Backdrop";
 import ReactDOM from "react-dom";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import SelectButton from "./SelectButton";
 import DayPicker from "./DayPicker";
 const DatePicker = (props) => {
   const [currentDate, updateCurrentDate] = useState(
     new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0)
   );
-
   let dayNumber = Number(currentDate.toLocaleString("en", { day: "numeric" }));
   const myDays = [];
   // The for loop below will add all days of a month to the myDays array
@@ -29,6 +28,9 @@ const DatePicker = (props) => {
       new Date(currentDate.getFullYear(), currentDate.getMonth() + 2, 0)
     );
   };
+  const takeTheChoosenDate = (choosenDate) => {
+    props.onTakingDate(choosenDate);
+  };
   return (
     <>
       <Backdrop
@@ -44,7 +46,10 @@ const DatePicker = (props) => {
             <button onClick={prevMonth}>Previous month</button>
             <button onClick={nxtMonth}>Next month</button>
           </div>
-          <DayPicker daysList={myDays}></DayPicker>
+          <DayPicker
+            daysList={myDays}
+            liftUpCoosenDate={takeTheChoosenDate}
+          ></DayPicker>
           <SelectButton closeCalender={closeBackDrop}></SelectButton>
         </div>
       </Backdrop>
@@ -54,23 +59,17 @@ const DatePicker = (props) => {
 
 const DateInput = (props) => {
   const todayDate = new Date();
-  let day, month, year;
-  day =
-    todayDate.getDate() >= 10
-      ? `${todayDate.getDate()}`
-      : `0${todayDate.getDate()}`;
-  month =
-    todayDate.getMonth() + 1 >= 10
-      ? `${todayDate.getMonth() + 1}`
-      : `0${todayDate.getMonth() + 1}`;
-  year = todayDate.getFullYear();
-
+  const dateRef = useRef();
   const [dateShowState, updateDateShowState] = useState(false);
+  const [test, udpateTest] = useState(props.value);
   const changeTheState = (stateValue) => {
     updateDateShowState(stateValue);
   };
   const showTheDatePicker = () => {
     updateDateShowState(true);
+  };
+  const pickTheDate = (given) => {
+    props.onUpdatingTheDate(given);
   };
   return (
     <>
@@ -81,7 +80,7 @@ const DateInput = (props) => {
             type="text"
             readOnly
             className="input-style hover-cursor"
-            value={`${month}/${day}/${year}`}
+            value={props.value}
             onClick={showTheDatePicker}
           ></input>
         </label>
@@ -90,6 +89,7 @@ const DateInput = (props) => {
         <DatePicker
           hideOrShow={dateShowState}
           onClosingDPicker={changeTheState}
+          onTakingDate={pickTheDate}
         />,
         document.getElementById("where-date-picker-goes-to")
       )}

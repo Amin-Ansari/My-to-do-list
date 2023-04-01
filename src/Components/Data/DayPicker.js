@@ -22,6 +22,9 @@ export default function DayPicker(props) {
       item.unshift("empty");
     }
   }
+  const takeTheDate = (theDate) => {
+    props.liftUpCoosenDate(theDate);
+  };
   return (
     <div className="day-container">
       <div className="day-name">
@@ -44,6 +47,7 @@ export default function DayPicker(props) {
                     }/${item.getDate()}/${item.getFullYear()}`}
                     nameVal={item.toLocaleString("en", { weekday: "long" })}
                     index={index}
+                    selectedDate={takeTheDate}
                   ></DayRadioButton>
                 </li>
               );
@@ -69,6 +73,7 @@ export default function DayPicker(props) {
                     }/${item.getDate()}/${item.getFullYear()}`}
                     nameVal={item.toLocaleString("en", { weekday: "long" })}
                     index={index}
+                    selectedDate={takeTheDate}
                   ></DayRadioButton>
                 </li>
               );
@@ -94,6 +99,7 @@ export default function DayPicker(props) {
                     }/${item.getDate()}/${item.getFullYear()}`}
                     nameVal={item.toLocaleString("en", { weekday: "long" })}
                     index={index}
+                    selectedDate={takeTheDate}
                   ></DayRadioButton>
                 </li>
               );
@@ -119,6 +125,7 @@ export default function DayPicker(props) {
                     }/${item.getDate()}/${item.getFullYear()}`}
                     nameVal={item.toLocaleString("en", { weekday: "long" })}
                     index={index}
+                    selectedDate={takeTheDate}
                   ></DayRadioButton>
                 </li>
               );
@@ -144,6 +151,7 @@ export default function DayPicker(props) {
                     }/${item.getDate()}/${item.getFullYear()}`}
                     nameVal={item.toLocaleString("en", { weekday: "long" })}
                     index={index}
+                    selectedDate={takeTheDate}
                   ></DayRadioButton>
                 </li>
               );
@@ -169,6 +177,7 @@ export default function DayPicker(props) {
                     }/${item.getDate()}/${item.getFullYear()}`}
                     nameVal={item.toLocaleString("en", { weekday: "long" })}
                     index={index}
+                    selectedDate={takeTheDate}
                   ></DayRadioButton>
                 </li>
               );
@@ -194,6 +203,7 @@ export default function DayPicker(props) {
                     }/${item.getDate()}/${item.getFullYear()}`}
                     nameVal={item.toLocaleString("en", { weekday: "long" })}
                     index={index}
+                    selectedDate={takeTheDate}
                   ></DayRadioButton>
                 </li>
               );
