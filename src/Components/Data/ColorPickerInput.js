@@ -1,7 +1,7 @@
 import "./ColorPickerInput.css";
 const ColorPickerInput = (props) => {
   const passTheColor = (event) => {
-    props.onPickingColor(event.value);
+    props.onPickingColor(event.target.value);
   };
   const colorList = [
     "CEEDC7",
@@ -35,7 +35,6 @@ const ColorPickerInput = (props) => {
             value={0}
             name="color-radio-btn"
             id={`color-${colorList.length + 1}`}
-            onClick={passTheColor}
             checked={props.isReseted ? true : false}
           ></input>
           <span className="select-outline"></span>

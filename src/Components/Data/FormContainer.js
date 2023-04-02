@@ -76,7 +76,7 @@ const FormContainer = (props) => {
       endVal: 1,
     }
   );
-  const [colorState, udpateColorState] = useState("");
+  const [colorState, udpateColorState] = useState("#");
 
   const updateTheDate = (takenDate) => {
     updateDateState(takenDate);
@@ -101,40 +101,6 @@ const FormContainer = (props) => {
       };
     },
   };
-
-  const hideTheAddingSection = () => {
-    props.onLiftingUp(false);
-  };
-  // The funcion below is responsible for updating localStorage
-  const updateLocalStorage = () => {
-    let taskLocaled = JSON.parse(
-      localStorage.getItem(`${taskDetails.taskDate}`)
-    );
-    if (!taskLocaled) {
-      localStorage.setItem(
-        `${taskDetails.taskDate}`,
-        JSON.stringify([taskDetails])
-      );
-    } else {
-      taskLocaled.push(JSON.stringify(taskDetails));
-      localStorage.setItem(
-        `${taskDetails.taskDate}`,
-        JSON.stringify(taskLocaled)
-      );
-    }
-
-    dispatchTimer({ unit: "RESET", time: "00:00", timeVal: 0 });
-    dispatchReducer({ type: "FOCUS", val: "" });
-    hideTheAddingSection();
-    updateTheDate(`${month}/${day}/${year}`);
-    updateImportancy(0);
-    updateCategory(0);
-    updateColorReset(true);
-    setTimeout(() => updateColorReset(false), 100);
-  };
-  const takeTheTime = (theTime, timeUnit, timeVal) => {
-    dispatchTimer({ unit: timeUnit, time: theTime, timeVal });
-  };
   const formSubmission = (event) => {
     event.preventDefault();
     if (
@@ -153,11 +119,45 @@ const FormContainer = (props) => {
   const pickTheColor = (color) => {
     udpateColorState(color);
   };
+
   const takeImportancy = (importancy) => {
     updateImportancy(importancy);
   };
   const takeCategory = (category) => {
     updateCategory(category);
+  };
+  const hideTheAddingSection = () => {
+    props.onLiftingUp(false);
+  };
+  // The funcion below is responsible for updating localStorage
+  const updateLocalStorage = () => {
+    let taskLocaled = JSON.parse(
+      localStorage.getItem(`${taskDetails.taskDate}`)
+    );
+    if (!taskLocaled) {
+      localStorage.setItem(
+        `${taskDetails.taskDate}`,
+        `[${JSON.stringify(taskDetails)}]`
+      );
+    } else {
+      taskLocaled.push(taskDetails);
+      localStorage.setItem(
+        `${taskDetails.taskDate}`,
+        JSON.stringify(taskLocaled)
+      );
+    }
+
+    dispatchTimer({ unit: "RESET", time: "00:00", timeVal: 0 });
+    dispatchReducer({ type: "FOCUS", val: "" });
+    hideTheAddingSection();
+    updateTheDate(`${month}/${day}/${year}`);
+    updateImportancy(0);
+    updateCategory(0);
+    updateColorReset(true);
+    setTimeout(() => updateColorReset(false), 100);
+  };
+  const takeTheTime = (theTime, timeUnit, timeVal) => {
+    dispatchTimer({ unit: timeUnit, time: theTime, timeVal });
   };
   return (
     <div className="form-container">
