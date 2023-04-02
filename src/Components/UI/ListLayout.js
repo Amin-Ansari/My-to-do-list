@@ -26,8 +26,16 @@ export default function ListLayout(props) {
       filteredTasks = tasks;
     }
   }
-  const listContent = filteredTasks
-    ? filteredTasks.map((item, index) => {
+  const listContent = function () {
+    let content;
+    if (filteredTasks.length == 0) {
+      content = (
+        <div className="no-task-available">There is no task available</div>
+      );
+      return content;
+    }
+    if (filteredTasks) {
+      content = filteredTasks.map((item, index) => {
         return (
           <div key={index}>
             <ListItem
@@ -37,17 +45,20 @@ export default function ListLayout(props) {
             ></ListItem>
           </div>
         );
-      })
-    : () => {
-        console.log("works");
-      };
+      });
+      return content;
+    }
+
+    console.log(content);
+    return content;
+  };
 
   return (
     <div>
       <div className="list-title">
         <h4>Today</h4>
       </div>
-      <ul className="list-style">{listContent}</ul>
+      <ul className="list-style">{listContent()}</ul>
     </div>
   );
 }

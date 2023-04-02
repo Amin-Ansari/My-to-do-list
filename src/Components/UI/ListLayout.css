@@ -11,6 +11,12 @@
   gap: 1.5rem;
   padding-bottom: 15px;
 }
+.no-task-available {
+  margin: 20px 0px;
+  font-size: 1.1rem;
+  grid-column: span 2;
+  text-align: center;
+}
 @media all and (min-width: 768px) {
   .list-style {
     grid-template-columns: 1fr 1fr;
