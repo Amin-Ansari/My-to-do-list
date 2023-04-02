@@ -1,7 +1,7 @@
 import "./ListLayout.css";
 import ListItem from "../Data/ListItem";
 import { useEffect } from "react";
-export default function ListLayout() {
+export default function ListLayout(props) {
   const todayDate = new Date();
   let day, month, year;
   day =
@@ -13,26 +13,41 @@ export default function ListLayout() {
       ? `${todayDate.getMonth() + 1}`
       : `0${todayDate.getMonth() + 1}`;
   year = todayDate.getFullYear();
-  let tasks = JSON.parse(localStorage.getItem(`${month}/${day}/${year}`));
-  console.log("hello world");
+  const tasks = JSON.parse(localStorage.getItem(`${month}/${day}/${year}`));
+  let filteredTasks = [];
+  if (tasks) {
+    if (props.listIndex >= 1) {
+      tasks.forEach((item) => {
+        if (Number(props.listIndex) - 1 == Number(item.taskCategory)) {
+          filteredTasks.push(item);
+        }
+      });
+    } else {
+      filteredTasks = tasks;
+    }
+  }
+  const listContent = filteredTasks
+    ? filteredTasks.map((item, index) => {
+        return (
+          <div key={index}>
+            <ListItem
+              bgColor={`${item.TaskColor}`}
+              taskTitle={`${item.taskName}`}
+              taskTime={`${item.taskEndTime}`}
+            ></ListItem>
+          </div>
+        );
+      })
+    : () => {
+        console.log("works");
+      };
+
   return (
     <div>
       <div className="list-title">
         <h4>Today</h4>
       </div>
-      <ul className="list-style">
-        {tasks
-          ? tasks.map((item, index) => {
-              return (
-                <ListItem
-                  bgColor={`${item.TaskColor}`}
-                  taskTitle={`${item.taskName}`}
-                  taskTime={`${item.taskEndTime}`}
-                ></ListItem>
-              );
-            })
-          : ""}
-      </ul>
+      <ul className="list-style">{listContent}</ul>
     </div>
   );
 }

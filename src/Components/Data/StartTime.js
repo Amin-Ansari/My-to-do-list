@@ -12,7 +12,7 @@ const StartTime = (props) => {
     }
   }
   const liftUpTheTime = function (event) {
-    props.onTakingTheTime(event.target.innerHTML, "START");
+    props.onTakingTheTime(event.target.innerHTML, "START", event.target.value);
   };
   return (
     <div className="input-wrapper">

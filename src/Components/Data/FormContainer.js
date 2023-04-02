@@ -47,7 +47,7 @@ const FormContainer = (props) => {
           startTime: action.time,
           endTime: state.endTime,
           isTimeValid: action.time === state.endTime ? false : true,
-          startVal: action.timeVal,
+          startVal: action.timemeValue,
           endVal: state.endVal,
         };
       } else if (action.unit == "END") {
@@ -56,7 +56,7 @@ const FormContainer = (props) => {
           endTime: action.time,
           isTimeValid: action.time === state.startTime ? false : true,
           startVal: state.startVal,
-          endVal: action.timeVal,
+          endVal: action.timemeValue,
         };
       } else {
         return {
@@ -85,7 +85,7 @@ const FormContainer = (props) => {
   const taskDetails = {
     taskName: nameReducer.value,
     taskDate: dateState,
-    taskCategory: "0",
+    taskCategory: categoryState,
     taskImportancy: importancyState,
     TaskColor: colorState,
     taskStartTime: timeReducer.startTime,
@@ -157,7 +157,7 @@ const FormContainer = (props) => {
     setTimeout(() => updateColorReset(false), 100);
   };
   const takeTheTime = (theTime, timeUnit, timeVal) => {
-    dispatchTimer({ unit: timeUnit, time: theTime, timeVal });
+    dispatchTimer({ unit: timeUnit, time: theTime, timemeValue: timeVal });
   };
   return (
     <div className="form-container">

@@ -27,7 +27,10 @@ function App() {
   function topicIsChoosen(givenValue) {
     updateTopicState(givenValue);
   }
-
+  const [categoryState, updateCategoryState] = useState(0);
+  const takeTheCategoryIndex = (givenIndex) => {
+    updateCategoryState(givenIndex);
+  };
   return (
     <div className="App">
       <AppContainer animationState={topicState} onClose={appMarginState}>
@@ -38,6 +41,7 @@ function App() {
           <CatagoryForm>
             <SelectAndOption
               categoryList={["All", "Work", "Study", "Cleaning up"]}
+              onTakingCategory={takeTheCategoryIndex}
             ></SelectAndOption>
           </CatagoryForm>
           <AddButton onTopicClick={topicIsChoosen}></AddButton>
@@ -48,7 +52,7 @@ function App() {
             <TitleAndTime></TitleAndTime>
             <Clock></Clock>
           </TaskTimer>
-          <ToDoList></ToDoList>
+          <ToDoList listIndex={categoryState}></ToDoList>
         </TaskSection>
       </AppContainer>
       {ReactDOM.createPortal(
