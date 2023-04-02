@@ -43,8 +43,14 @@ export default function DayPicker(props) {
                   <DayRadioButton
                     dayNum={item.getDate()}
                     dateValue={`${
-                      item.getMonth() + 1
-                    }/${item.getDate()}/${item.getFullYear()}`}
+                      item.getMonth() + 1 <= 9
+                        ? `0${item.getMonth() + 1}`
+                        : `${item.getMonth()}`
+                    }/${
+                      item.getDate() <= 9
+                        ? `0${item.getDate()}`
+                        : `${item.getDate()}`
+                    }/${item.getFullYear()}`}
                     nameVal={item.toLocaleString("en", { weekday: "long" })}
                     index={index}
                     selectedDate={takeTheDate}
@@ -69,8 +75,14 @@ export default function DayPicker(props) {
                   <DayRadioButton
                     dayNum={item.getDate()}
                     dateValue={`${
-                      item.getMonth() + 1
-                    }/${item.getDate()}/${item.getFullYear()}`}
+                      item.getMonth() + 1 <= 9
+                        ? `0${item.getMonth() + 1}`
+                        : `${item.getMonth()}`
+                    }/${
+                      item.getDate() <= 9
+                        ? `0${item.getDate()}`
+                        : `${item.getDate()}`
+                    }/${item.getFullYear()}`}
                     nameVal={item.toLocaleString("en", { weekday: "long" })}
                     index={index}
                     selectedDate={takeTheDate}
@@ -95,8 +107,14 @@ export default function DayPicker(props) {
                   <DayRadioButton
                     dayNum={item.getDate()}
                     dateValue={`${
-                      item.getMonth() + 1
-                    }/${item.getDate()}/${item.getFullYear()}`}
+                      item.getMonth() + 1 <= 9
+                        ? `0${item.getMonth() + 1}`
+                        : `${item.getMonth()}`
+                    }/${
+                      item.getDate() <= 9
+                        ? `0${item.getDate()}`
+                        : `${item.getDate()}`
+                    }/${item.getFullYear()}`}
                     nameVal={item.toLocaleString("en", { weekday: "long" })}
                     index={index}
                     selectedDate={takeTheDate}
@@ -121,8 +139,14 @@ export default function DayPicker(props) {
                   <DayRadioButton
                     dayNum={item.getDate()}
                     dateValue={`${
-                      item.getMonth() + 1
-                    }/${item.getDate()}/${item.getFullYear()}`}
+                      item.getMonth() + 1 <= 9
+                        ? `0${item.getMonth() + 1}`
+                        : `${item.getMonth()}`
+                    }/${
+                      item.getDate() <= 9
+                        ? `0${item.getDate()}`
+                        : `${item.getDate()}`
+                    }/${item.getFullYear()}`}
                     nameVal={item.toLocaleString("en", { weekday: "long" })}
                     index={index}
                     selectedDate={takeTheDate}
@@ -147,8 +171,14 @@ export default function DayPicker(props) {
                   <DayRadioButton
                     dayNum={item.getDate()}
                     dateValue={`${
-                      item.getMonth() + 1
-                    }/${item.getDate()}/${item.getFullYear()}`}
+                      item.getMonth() + 1 <= 9
+                        ? `0${item.getMonth() + 1}`
+                        : `${item.getMonth()}`
+                    }/${
+                      item.getDate() <= 9
+                        ? `0${item.getDate()}`
+                        : `${item.getDate()}`
+                    }/${item.getFullYear()}`}
                     nameVal={item.toLocaleString("en", { weekday: "long" })}
                     index={index}
                     selectedDate={takeTheDate}
@@ -173,8 +203,14 @@ export default function DayPicker(props) {
                   <DayRadioButton
                     dayNum={item.getDate()}
                     dateValue={`${
-                      item.getMonth() + 1
-                    }/${item.getDate()}/${item.getFullYear()}`}
+                      item.getMonth() + 1 <= 9
+                        ? `0${item.getMonth() + 1}`
+                        : `${item.getMonth()}`
+                    }/${
+                      item.getDate() <= 9
+                        ? `0${item.getDate()}`
+                        : `${item.getDate()}`
+                    }/${item.getFullYear()}`}
                     nameVal={item.toLocaleString("en", { weekday: "long" })}
                     index={index}
                     selectedDate={takeTheDate}
@@ -199,8 +235,14 @@ export default function DayPicker(props) {
                   <DayRadioButton
                     dayNum={item.getDate()}
                     dateValue={`${
-                      item.getMonth() + 1
-                    }/${item.getDate()}/${item.getFullYear()}`}
+                      item.getMonth() + 1 <= 9
+                        ? `0${item.getMonth() + 1}`
+                        : `${item.getMonth()}`
+                    }/${
+                      item.getDate() <= 9
+                        ? `0${item.getDate()}`
+                        : `${item.getDate()}`
+                    }/${item.getFullYear()}`}
                     nameVal={item.toLocaleString("en", { weekday: "long" })}
                     index={index}
                     selectedDate={takeTheDate}

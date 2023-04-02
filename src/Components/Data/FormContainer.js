@@ -64,14 +64,16 @@ const FormContainer = (props) => {
           endTime: action.time,
           isTimeValid: true,
           startVal: 0,
-          endVal: 0,
+          endVal: 1,
         };
       }
     },
     {
       startTime: "00:00",
-      endTime: "00:00",
+      endTime: "00:30",
       isTimeValid: true,
+      startVal: 0,
+      endVal: 1,
     }
   );
   const [colorState, udpateColorState] = useState("");
@@ -90,6 +92,7 @@ const FormContainer = (props) => {
     taskEndTime: timeReducer.endTime,
     taskStartVal: timeReducer.startVal,
     taskEndVal: timeReducer.endVal,
+    isItDone: false,
     infoValidation: function () {
       return {
         isTimeValid: timeReducer.isTimeValid,
