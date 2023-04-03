@@ -31,7 +31,7 @@ const TitleAndTime = (props) => {
 
   return (
     <div className="title-and-time-style">
-      <h6>Have dinner</h6>
+      <h6>Current Time</h6>
       <span>{`${currentTime.hour}:${currentTime.minutes}`}</span>
     </div>
   );
