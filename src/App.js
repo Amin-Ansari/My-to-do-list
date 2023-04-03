@@ -52,6 +52,10 @@ function App() {
   const toggleTheState = () => {
     isSwitchToDate ? updateSwitchToDate(false) : updateSwitchToDate(true);
   };
+
+  const updateTheDate = (takenDate) => {
+    updatePickedDate(takenDate);
+  };
   return (
     <div className="App">
       <AppContainer animationState={topicState} onClose={appMarginState}>
@@ -76,6 +80,7 @@ function App() {
               value={pickedDate}
               extraClasses={`${!isSwitchToDate ? "hide-input" : "show-input"}`}
               labelStyle={false}
+              onUpdatingTheDate={updateTheDate}
             ></DateInput>
           </CatagoryForm>
           <AddButton onTopicClick={topicIsChoosen}></AddButton>
@@ -86,7 +91,7 @@ function App() {
             <TitleAndTime></TitleAndTime>
             <Clock></Clock>
           </TaskTimer>
-          <ToDoList listIndex={categoryState}></ToDoList>
+          <ToDoList listIndex={categoryState} taksDate={pickedDate}></ToDoList>
         </TaskSection>
       </AppContainer>
       {ReactDOM.createPortal(

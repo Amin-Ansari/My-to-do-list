@@ -5,7 +5,10 @@ export default function ToDoList(props) {
   return (
     <div className={classes["todo-list-style"]}>
       <h2 className={classes["title-style"]}>Tasks</h2>
-      <ListLayout listIndex={props.listIndex}></ListLayout>
+      <ListLayout
+        listIndex={props.listIndex}
+        date={props.taksDate}
+      ></ListLayout>
     </div>
   );
 }

@@ -13,7 +13,7 @@ export default function ListLayout(props) {
       ? `${todayDate.getMonth() + 1}`
       : `0${todayDate.getMonth() + 1}`;
   year = todayDate.getFullYear();
-  const tasks = JSON.parse(localStorage.getItem(`${month}/${day}/${year}`));
+  const tasks = JSON.parse(localStorage.getItem(props.date));
   let filteredTasks = [];
   if (tasks) {
     if (props.listIndex >= 1) {
