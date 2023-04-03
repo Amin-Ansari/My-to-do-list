@@ -12,7 +12,7 @@ const EndTime = (props) => {
     }
   }
   const liftUpTheTime = function (event) {
-    props.onTakingTheTime(event.target.innerHTML, "END");
+    props.onTakingTheTime(event.target.innerHTML, "END", event.target.value);
   };
 
   return (

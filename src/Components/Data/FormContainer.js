@@ -201,6 +201,7 @@ const FormContainer = (props) => {
           value={taskDetails.taskEndVal}
         ></EndTime>
         <TaskAddingButton></TaskAddingButton>
+        {console.log(taskDetails.taskEndVal)}
       </form>
     </div>
   );
