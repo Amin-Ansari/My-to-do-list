@@ -52,8 +52,6 @@ const AddingTopic = (props) => {
         }`}
       >
         <div onClick={props.onTopicChoose}>Add task</div>
-        <div onClick={props.onTopicChoose}>Add list</div>
-        <div onClick={props.onTopicChoose}>Add routine</div>
       </div>
     </Backdrop>
   );

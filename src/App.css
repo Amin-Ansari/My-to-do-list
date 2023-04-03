@@ -29,3 +29,13 @@ option {
   background-color: transparent;
   border: 1.8px solid #9c89b8;
 }
+.hide-input {
+  display: none;
+}
+.show-input {
+  display: block;
+  width: 80% !important;
+}
+.show-input input {
+  text-align: center;
+}

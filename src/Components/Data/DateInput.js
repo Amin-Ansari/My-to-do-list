@@ -73,9 +73,13 @@ const DateInput = (props) => {
   };
   return (
     <>
-      <div className="input-wrapper">
-        <label className="label-style hover-cursor">
-          Date
+      <div
+        className={`input-wrapper ${
+          props.extraClasses ? props.extraClasses : ""
+        }`}
+      >
+        <label className={`label-style hover-cursor `}>
+          {`${props.labelStyle ? "Date" : ""}`}
           <input
             type="text"
             readOnly

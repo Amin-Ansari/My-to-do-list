@@ -9,6 +9,12 @@ const OffCanvasDrawer = (props) => {
   function hideOffCanvas() {
     props.visibilityState && props.onHidingOffCanvas();
   }
+  {
+  }
+  const toggleing = () => {
+    props.onToggle();
+    console.log("goal");
+  };
   return (
     <div
       className="back-drop"
@@ -16,8 +22,12 @@ const OffCanvasDrawer = (props) => {
       onClick={hideOffCanvas}
       ref={drawerRef}
     >
-      <div className="offCanvas-menu">
-        <SwitchButton className={"switch"}></SwitchButton>
+      <div className="offCanvas-menu" onClick={toggleing}>
+        <SwitchButton
+          onToggleing={props.onToggle}
+          className={"switch"}
+          toDateOrCategory={props.dateOrCategory}
+        ></SwitchButton>
       </div>
     </div>
   );
@@ -44,6 +54,8 @@ const OffCanvas = (props) => {
         <OffCanvasDrawer
           visibilityState={barsState}
           onHidingOffCanvas={toggleTheOffCanvas}
+          onToggle={props.onToggleing}
+          dateOrCategory={props.toDateOrCategory}
         />,
         document.querySelector("#where-offCavnasMenu-goes")
       )}

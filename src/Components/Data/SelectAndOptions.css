@@ -8,3 +8,12 @@
   border: 1.8px solid #9c89b8;
   border-radius: 10px;
 }
+.hide-input {
+  display: none;
+}
+.show-input {
+  display: block;
+}
+.input-wrapper.show-input {
+  padding: 0px !important;
+}

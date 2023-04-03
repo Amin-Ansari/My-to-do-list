@@ -1,5 +1,12 @@
 const SwitchButton = (props) => {
-  return <div className={props.className}>Swtich to date</div>;
+  function toggleing() {
+    props.onToggleing();
+  }
+  return (
+    <div className={props.className} onClick={toggleing}>
+      Swtich to {`${props.toDateOrCategory ? "Category" : "Date"}`}
+    </div>
+  );
 };
 
 export default SwitchButton;
