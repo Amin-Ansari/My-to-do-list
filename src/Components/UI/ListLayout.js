@@ -26,8 +26,19 @@ export default function ListLayout(props) {
       filteredTasks = tasks;
     }
   }
+  const toggleDoneState = (passedTask, passedState) => {
+    // console.log(passedTask);
+    let tasks = JSON.parse(localStorage.getItem(props.date));
+    for (let task of tasks) {
+      if (task.taskName === passedTask.taskName) {
+        task.isItDone = passedState;
+        localStorage.setItem(`${props.date}`, JSON.stringify(tasks));
+      }
+    }
+  };
   const listContent = function () {
     let content;
+    console.log(filteredTasks);
     if (filteredTasks.length == 0) {
       content = (
         <div className="no-task-available">There is no task available</div>
@@ -38,11 +49,7 @@ export default function ListLayout(props) {
       content = filteredTasks.map((item, index) => {
         return (
           <div key={index}>
-            <ListItem
-              bgColor={`${item.TaskColor}`}
-              taskTitle={`${item.taskName}`}
-              taskTime={`${item.taskEndTime}`}
-            ></ListItem>
+            <ListItem task={item} ontoggling={toggleDoneState}></ListItem>
           </div>
         );
       });
