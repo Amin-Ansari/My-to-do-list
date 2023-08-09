@@ -18,6 +18,7 @@ import Clock from "./Components/Data/Clock";
 import ToDoList from "./Components/Data/ToDoList";
 import AddSection from "./Components/UI/AddSection";
 import DateInput from "./Components/Data/DateInput";
+import CopyRight from "./Components/Data/CopyRight";
 import SwitchButton from "./Components/Data/SwitchButton";
 
 function App() {
@@ -94,6 +95,7 @@ function App() {
           <ToDoList listIndex={categoryState} taksDate={pickedDate}></ToDoList>
         </TaskSection>
       </AppContainer>
+      <CopyRight />
       {ReactDOM.createPortal(
         <AddSection
           showHideState={topicState}

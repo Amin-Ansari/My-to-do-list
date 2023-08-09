@@ -1,0 +1,11 @@
+.copy-right {
+  position: fixed;
+  bottom: 10px;
+}
+
+.copy-right a {
+  text-decoration: underline;
+  color: rgb(53, 52, 52);
+  color: #9c89b8;
+  font-weight: bold;
+}
